@@ -21,4 +21,5 @@ public class Game {
     String genre;
     String platform;
     String photoUrl;
+    int inStock;
 }
