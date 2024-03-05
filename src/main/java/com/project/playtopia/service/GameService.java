@@ -23,6 +23,15 @@ public class GameService  {
                 .collect(Collectors.toList());
     }
 
+
+    public Game saveGame(Game game){
+        return gameRepository.save(game);
+    }
+
+    public void deleteGame(Long id){
+        gameRepository.deleteById(id);
+    }
+
     public GameDto mapToGameDto(Game game) {
         GameDto gameDto = new GameDto();
         gameDto.setId(game.getId());

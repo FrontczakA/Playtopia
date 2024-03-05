@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Games list</title>
+    <title>Add new game</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
 </head>
-
 <body>
 <div class="topnav">
     <nav>
@@ -37,51 +35,15 @@
     </nav>
 </div>
 <div class="container">
-    <div class="filter-container">
-        <h2>Filter by:</h2>
-        <form>
-            <h3>Console:</h3>
-            <input type="radio" id="ps4" name="console" value="ps4">
-            <label for="ps4">PS4</label><br>
-            <input type="radio" id="ps5" name="console" value="ps5">
-            <label for="ps5">PS5</label><br>
-            <input type="radio" id="xboxOne" name="console" value="xboxOne">
-            <label for="xboxOne">Xbox One</label><br>
-            <input type="radio" id="xboxSeriesX" name="console" value="xboxSeriesX">
-            <label for="xboxSeriesX">Xbox Series X</label><br>
-            <input type="radio" id="nintendoSwitch" name="console" value="nintendoSwitch">
-            <label for="nintendoSwitch">Nintendo Switch</label><br>
-            <input type="radio" id="pc" name="console" value="pc">
-            <label for="pc">PC</label><br>
-
-            <h3>Price Range:</h3>
-            <input type="text" id="priceFrom" name="priceFrom" placeholder="From">
-            <input type="text" id="priceTo" name="priceTo" placeholder="To">
-
-            <h3>Category:</h3>
-            <select name="category">
-                <option value="action">Action</option>
-                <option value="adventure">Adventure</option>
-                <option value="rpg">RPG</option>
-                <option value="fps">FPS</option>
-                <option value="sports">Sports</option>
-                <option value="strategy">Strategy</option>
+    <div class="deletegameform">
+        <form role="form" method="post" th:action="@{/games/delete}">
+            <select class="deleteselect" name="gameId">
+                <option th:each="game : ${gamesList}" th:value="${game.id}" th:text="${game.title + ' - ' + game.platform}"></option>
             </select>
-
-            <input type="submit" value="Apply">
+            <button type="submit" class="deletegamebutton">Delete</button>
         </form>
     </div>
-    <div class="main-container">
-        <div class="images-container">
-            <div class="column" th:each="game: ${gamesList}">
-                <img th:src="${game.photoUrl}" alt="..." width="100" height="250"/>
-                <p class="gametitle" th:text="${game.title}"></p>
-                <a class="gamedetails" href="#details">Details</a>
-            </div>
-        </div>
-    </div>
 </div>
-
 <footer>
     <div class="footer">
         <div class="row">
@@ -108,5 +70,4 @@
 </footer>
 
 </body>
-
 </html>

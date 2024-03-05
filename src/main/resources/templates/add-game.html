@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add new game</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topnav">
+  <nav>
+    <div class="dropdown">
+      <button class="dropbtn">Admin</button>
+      <div class="dropdown-content">
+        <a th:href="@{/games/new}">Add game</a>
+        <a href="#">Update game</a>
+        <a th:href="@{/games/delete}">Delete game</a>
+      </div>
+    </div>
+    <a class="navsite">PLAYSTATION</a>
+    <a class="navsite">PC</a>
+    <a class="logo" th:href="@{/games}">Playtopia</a>
+    <a class="navsite">XBOX</a>
+    <a class="navsite">NINTENDO</a>
+    <div class="loginregisterdiv">
+      <a class="loginregister">LOGIN</a>
+      <a class="loginregister">REGISTER</a>
+    </div>
+  </nav>
+</div>
+<div class="container">
+  <div class="addgameform">
+    <form role="form" method="post" th:action="@{/games/new}" th:object="${game}">
+      <div class="form-row">
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">
+          <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input name="description" th:field="*{description}" type="text" class="form-control" id="description" placeholder="Description">
+          <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="photoUrl">Genre</label>
+        <input name="description" th:field="*{genre}" class="form-control" id="genre" placeholder="Genre">
+        <p th:if="${#fields.hasErrors('genre')}" class="text-danger" th:errors="*{genre}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="photoUrl">Platform</label>
+        <input name="description" th:field="*{platform}" class="form-control" id="platform" placeholder="Platform">
+        <p th:if="${#fields.hasErrors('platform')}" class="text-danger" th:errors="*{platform}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="photoUrl">Photo</label>
+        <input name="description" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url">
+        <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="photoUrl">Price</label>
+        <input name="description" type="number" th:field="*{price}" class="form-control" id="price" placeholder="Price">
+        <p th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="*{price}"></p>
+      </div>
+
+      <div class="form-group ">
+        <label for="photoUrl">In stock</label>
+        <input type="number" name="description" th:field="*{inStock}" class="form-control" id="inStock" placeholder="inStock">
+        <p th:if="${#fields.hasErrors('inStock')}" class="text-danger" th:errors="*{inStock}"></p>
+      </div>
+
+      <button type="submit" class="addgamebutton">Create</button>
+
+    </form>
+
+  </div>
+</div>
+<footer>
+  <div class="footer">
+    <div class="row">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+
+    <div class="row">
+      <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Career</a></li>
+      </ul>
+    </div>
+
+    <div class="row">
+      Playtopia Copyright © 2024
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
