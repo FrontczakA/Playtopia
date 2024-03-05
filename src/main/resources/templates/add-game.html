@@ -19,38 +19,31 @@
       <button class="dropbtn">Admin</button>
       <div class="dropdown-content">
         <a th:href="@{/games/new}">Add game</a>
-        <a href="#">Update game</a>
+        <a th:href="@{/games/edit}">Update game</a>
         <a th:href="@{/games/delete}">Delete game</a>
       </div>
     </div>
-    <a class="navsite">PLAYSTATION</a>
+    <a class="navsite" href="#">PLAYSTATION</a>
     <a class="navsite">PC</a>
     <a class="logo" th:href="@{/games}">Playtopia</a>
-    <a class="navsite">XBOX</a>
-    <a class="navsite">NINTENDO</a>
+    <a class="navsite" href="#">XBOX</a>
+    <a class="navsite" href="#">NINTENDO</a>
     <div class="loginregisterdiv">
-      <a class="loginregister">LOGIN</a>
-      <a class="loginregister">REGISTER</a>
+      <a class="loginregister" href="#">LOGIN</a>
+      <a class="loginregister" href="#">REGISTER</a>
     </div>
   </nav>
 </div>
 <div class="container">
   <div class="addgameform">
     <form role="form" method="post" th:action="@{/games/new}" th:object="${game}">
-      <div class="form-row">
-
         <div class="form-group">
           <label for="title">Title</label>
           <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">
           <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
         </div>
 
-        <div class="form-group">
-          <label for="description">Description</label>
-          <input name="description" th:field="*{description}" type="text" class="form-control" id="description" placeholder="Description">
-          <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
-        </div>
-      </div>
+
 
       <div class="form-group">
         <label for="photoUrl">Genre</label>
@@ -82,6 +75,12 @@
         <p th:if="${#fields.hasErrors('inStock')}" class="text-danger" th:errors="*{inStock}"></p>
       </div>
 
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="10" cols="80">
+          </textarea>
+        <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
+      </div>
       <button type="submit" class="addgamebutton">Create</button>
 
     </form>

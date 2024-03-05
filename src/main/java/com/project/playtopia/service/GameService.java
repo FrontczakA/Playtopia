@@ -37,6 +37,18 @@ public class GameService  {
     public void deleteGame(Long id){
         gameRepository.deleteById(id);
     }
+    public void updateGame(Long id, Game game) {
+        Game gameToUpdate = gameRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid game Id:" + id));
+        gameToUpdate.setPrice(game.getPrice());
+        gameToUpdate.setTitle(game.getTitle());
+        gameToUpdate.setDescription(game.getDescription());
+        gameToUpdate.setGenre(game.getGenre());
+        gameToUpdate.setPlatform(game.getPlatform());
+        gameToUpdate.setPhotoUrl(game.getPhotoUrl());
+        gameToUpdate.setInStock(game.getInStock());
+        gameRepository.save(gameToUpdate);
+    }
 
     public GameDto mapToGameDto(Game game) {
         GameDto gameDto = new GameDto();

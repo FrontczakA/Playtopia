@@ -289,3 +289,46 @@ body {
 .pagination a:last-child {
     margin-right: 0;
 }
+
+.editgameform{
+    background-color: white;
+    border-style: solid;
+    border-width: 5px;
+    border-color: lightgray;
+    width: 1000px;
+    height: 700px;
+    margin: 50px;
+    padding: 20px;
+
+}
+
+.editgamechoose{
+    position:relative;
+    left:600px;
+    bottom:650px;
+}
+
+.editselect{
+    width: 350px;
+    height: 50px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+}
+
+.form-group{
+    font-family: "Anta", sans-serif;
+    font-size: 25px;
+}
+.form-control{
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+}
+.editgamebutton{
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    bottom: 70px;
+    left: 500px;
+
+}

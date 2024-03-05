@@ -33,6 +33,6 @@ public class Game {
     @NotEmpty(message = "This field can't be empty")
     String photoUrl;
     @NotNull
-    @Min(value = 1, message = "Price must be greater than or equal to 1")
-    int inStock;
+    @Min(value = 1, message = "This must be greater than or equal to 1")
+    Long inStock;
 }

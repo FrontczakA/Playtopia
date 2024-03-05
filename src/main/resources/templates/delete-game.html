@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add new game</title>
+    <title>Delete game</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,18 +19,18 @@
             <button class="dropbtn">Admin</button>
             <div class="dropdown-content">
                 <a th:href="@{/games/new}">Add game</a>
-                <a href="#">Update game</a>
+                <a th:href="@{/games/edit}">Update game</a>
                 <a th:href="@{/games/delete}">Delete game</a>
             </div>
         </div>
-        <a class="navsite">PLAYSTATION</a>
-        <a class="navsite">PC</a>
+        <a class="navsite" href="#">PLAYSTATION</a>
+        <a class="navsite" href="#">PC</a>
         <a class="logo" th:href="@{/games}">Playtopia</a>
-        <a class="navsite">XBOX</a>
-        <a class="navsite">NINTENDO</a>
+        <a class="navsite" href="#">XBOX</a>
+        <a class="navsite" href="#">NINTENDO</a>
         <div class="loginregisterdiv">
-            <a class="loginregister">LOGIN</a>
-            <a class="loginregister">REGISTER</a>
+            <a class="loginregister" href="#">LOGIN</a>
+            <a class="loginregister" href="#">REGISTER</a>
         </div>
     </nav>
 </div>

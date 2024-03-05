@@ -4,7 +4,6 @@ import com.project.playtopia.dto.GameDto;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.service.GameService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -58,4 +57,23 @@ public class GameController {
         model.addAttribute("gamesList", gamesList);
         return "redirect:/games";
     }
+
+    @GetMapping("/edit")
+    String editGameForm(Model model){
+        List<GameDto> gamesList = gameService.findAllGames();
+        model.addAttribute("gamesList", gamesList);
+        model.addAttribute("game", new Game());
+        return "edit-game";
+    }
+
+    @PostMapping("/edit")
+    String editGame(@RequestParam("id") Long id, Model model, @Validated @ModelAttribute("game") Game game, BindingResult result){
+        if(result.hasErrors()) {
+            model.addAttribute("game", game);
+            return "edit-game";
+        }
+        gameService.updateGame(id, game);
+        return "redirect:/games";
+    }
+
 }
