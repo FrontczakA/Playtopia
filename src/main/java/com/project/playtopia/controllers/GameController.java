@@ -3,6 +3,10 @@ package com.project.playtopia.controllers;
 import com.project.playtopia.dto.GameDto;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.service.GameService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,9 +24,9 @@ public class GameController {
         this.gameService = gameService;
     }
     @GetMapping("")
-    String getAllGames(Model model){
-        List<GameDto> gamesList = gameService.findAllGames();
-        model.addAttribute("gamesList", gamesList);
+    String getAllGames(@PageableDefault(size = 6) Pageable pageable, Model model) {
+        Page<GameDto> gamesPage = gameService.findAllGamesPage(pageable);
+        model.addAttribute("gamesPage", gamesPage);
         return "games-list";
     }
 

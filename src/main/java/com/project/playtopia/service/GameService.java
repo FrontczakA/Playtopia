@@ -3,6 +3,8 @@ package com.project.playtopia.service;
 import com.project.playtopia.dto.GameDto;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.repository.GameRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,10 @@ public class GameService  {
                 .collect(Collectors.toList());
     }
 
+    public Page<GameDto> findAllGamesPage(Pageable pageable) {
+        Page<Game> gamesPage = gameRepository.findAll(pageable);
+        return gamesPage.map(this::mapToGameDto);
+    }
 
     public Game saveGame(Game game){
         return gameRepository.save(game);

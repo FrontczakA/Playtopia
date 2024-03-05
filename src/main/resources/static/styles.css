@@ -264,3 +264,28 @@ body {
     font-size: 15px;
     font-family: "Anta", sans-serif;
 }
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 57%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    width: 250px;
+}
+
+.pagination > div {
+    display: inline-block;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+    font-family: "Anta", sans-serif;
+}
+
+.pagination a:last-child {
+    margin-right: 0;
+}
