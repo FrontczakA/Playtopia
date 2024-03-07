@@ -3,6 +3,7 @@ package com.project.playtopia.service;
 import com.project.playtopia.dto.GameDto;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.repository.GameRepository;
+import javassist.NotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,10 @@ public class GameService  {
 
     public void deleteGame(Long id){
         gameRepository.deleteById(id);
+    }
+    public GameDto findGameById(Long id) throws NotFoundException {
+        Game game = gameRepository.findById(id).get();
+        return mapToGameDto(game);
     }
     public void updateGame(Long id, Game game) {
         Game gameToUpdate = gameRepository.findById(id)

@@ -3,6 +3,7 @@ package com.project.playtopia.controllers;
 import com.project.playtopia.dto.GameDto;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.service.GameService;
+import javassist.NotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -74,6 +75,16 @@ public class GameController {
         }
         gameService.updateGame(id, game);
         return "redirect:/games";
+    }
+    @GetMapping("/{id}")
+    public String gameDetails(@PathVariable Long id, Model model ){
+        try {
+            GameDto gameDto = gameService.findGameById(id);
+            model.addAttribute("game", gameDto);
+            return "game-details";
+        } catch (NotFoundException e) {
+            return "redirect:/games";
+        }
     }
 
 }
