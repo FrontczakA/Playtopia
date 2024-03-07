@@ -1,0 +1,62 @@
+[33mcommit b38f0ffe1db2646bafd032fd726c595d072fb114[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Wed Mar 6 19:32:23 2024 +0100
+
+    Added layout file and used it in all existing views
+
+[33mcommit b0f8936453d92f0590eb91a8757823981a91041c[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Tue Mar 5 19:35:41 2024 +0100
+
+    added data.sql file with test data
+
+[33mcommit 3435f7565752e998aa5c5814cedbb88fb23006d5[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Tue Mar 5 19:13:24 2024 +0100
+
+    Implemented updating existing game with view
+
+[33mcommit 882f6680c59168ed8f73f5a87ae45e6cf079608c[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Tue Mar 5 16:54:53 2024 +0100
+
+    Added games list pagination
+
+[33mcommit ee9c5e2dc6f7de5a70958eb8f69a3f823a9a5c31[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Tue Mar 5 15:52:38 2024 +0100
+
+    added deleting and adding new games implementation with views
+
+[33mcommit 862d758d31bc7b617c1b74012ca929cf2f0d6d8b[m
+Merge: fdeed05 6cbc66e
+Author: altut <frontczak-artur@wp.pl>
+Date:   Sun Mar 3 19:12:04 2024 +0100
+
+    Merge remote-tracking branch 'playtopia/master'
+
+[33mcommit fdeed050b9d31a3437df08be1287a5c1978a4f8f[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Sun Mar 3 19:10:53 2024 +0100
+
+    created first version of game list view, added thymeleaf layouts dependency
+
+[33mcommit 6cbc66eb56580b1ac5b421c260d9735a5ef20127[m
+Author: Artur Frontczak <143129577+FrontczakA@users.noreply.github.com>
+Date:   Sat Mar 2 13:06:42 2024 +0100
+
+    Create README.md
+    
+    created project description and planned features
+
+[33mcommit f1e2b8f90926ba188784b7a3ba747baa503c4c1b[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Sat Mar 2 12:49:38 2024 +0100
+
+    implemented the GameDto class and created a method to retrieve a list of all games.
+
+[33mcommit d83a29b580434a1b10641574d143d26223036154[m
+Author: altut <frontczak-artur@wp.pl>
+Date:   Sat Mar 2 12:22:28 2024 +0100
+
+    added game repository,service,controller, game-list view
