@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -44,6 +45,7 @@ public class GameController {
         model.addAttribute("game", game);
         return "add-game";
     }
+
     @GetMapping("/delete")
     String deleteGameForm(Model model){
         List<GameDto> gamesList = gameService.findAllGames();

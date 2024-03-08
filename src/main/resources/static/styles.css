@@ -436,3 +436,6 @@ body {
     color: blue;
 }
 
+.text-danger{
+    font-size: 12px;
+}
