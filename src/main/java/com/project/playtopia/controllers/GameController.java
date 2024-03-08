@@ -86,5 +86,11 @@ public class GameController {
             return "redirect:/games";
         }
     }
+    @GetMapping("/filter")
+    public String filterGames(@RequestParam(required = false) double min, @RequestParam(required = false) double max, @RequestParam(required = false) String console, @RequestParam(required = false) String category, @PageableDefault(size = 6) Pageable pageable, Model model){
+        Page<GameDto> gamesPage = gameService.filterGames(min, max, console, category, pageable);
+        model.addAttribute("gamesPage", gamesPage);
+        return "games-list";
+    }
 
 }

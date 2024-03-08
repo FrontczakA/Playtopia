@@ -42,6 +42,13 @@ public class GameService  {
         Game game = gameRepository.findById(id).get();
         return mapToGameDto(game);
     }
+
+    public Page<GameDto> filterGames(double min, double max, String console, String category, Pageable pageable) {
+        Page<Game> games = gameRepository.filterGamesList(min, max, console, category, pageable);
+        return games.map(this::mapToGameDto);
+    }
+
+
     public void updateGame(Long id, Game game) {
         Game gameToUpdate = gameRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid game Id:" + id));
