@@ -267,9 +267,13 @@ body {
     margin: 25px;
 }
 .addgamebutton{
-    right: 920px;
-    bottom: 170px;
+    bottom: 105px;
+    left: 900px;
+    font-family: "Anta", sans-serif;
     position: absolute;
+    width: 150px;
+    height: 30px;
+    border-radius: 12px;
 }
 
 .deletegameform{
@@ -321,17 +325,26 @@ body {
     border-style: solid;
     border-width: 5px;
     border-color: lightgray;
-    width: 1000px;
+    width: 800px;
     height: 700px;
     margin: 50px;
     padding: 20px;
 
 }
+.editgamebutton{
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    bottom: 40px;
+    left: 800px;
+    font-family: "Anta", sans-serif;
+    border-radius: 12px;
 
+}
 .editgamechoose{
     position:relative;
-    left:600px;
-    bottom:650px;
+    left:450px;
+    bottom:600px;
 }
 
 .editselect{
@@ -350,14 +363,7 @@ body {
     height: 40px;
     font-size: 18px;
 }
-.editgamebutton{
-    width: 150px;
-    height: 30px;
-    position: absolute;
-    bottom: 70px;
-    left: 500px;
 
-}
 
 .detailscontainer {
     background-color: white;
