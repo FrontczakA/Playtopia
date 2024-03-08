@@ -128,7 +128,7 @@
 
 .column {
     flex-basis: calc(33.33% - 20px);
-    margin-top: 50px;
+    margin-top: 20px;
     position: relative;
 }
 
@@ -148,7 +148,9 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 20px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+    color: black;
 }
 
 .filterapply{
