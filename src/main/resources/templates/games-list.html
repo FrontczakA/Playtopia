@@ -21,6 +21,7 @@
         <h2>Filter by</h2>
         <form method="get" action="/games/filter">
             <h3>Console</h3>
+            <label for="ps4">PS4</label><br>
             <input type="radio" id="ps4" name="console" value="PS4">
             <label for="ps4">PS4</label><br>
             <input type="radio" id="ps5" name="console" value="PS5">
@@ -33,7 +34,8 @@
             <label for="nintendoSwitch">Nintendo Switch</label><br>
             <input type="radio" id="pc" name="console" value="PC">
             <label for="pc">PC</label><br>
-
+            <input type="radio" id="allConsoles" name="console" value="">
+            <label for="allConsoles">All</label><br>
             <h3>Price Range</h3>
             <input class="filterprice" type="text" id="min" name="min" placeholder="From" value="1.00">
             <input class="filterprice" type="text" id="max" name="max" placeholder="To" value="1000.00">
