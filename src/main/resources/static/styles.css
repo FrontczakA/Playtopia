@@ -107,20 +107,24 @@
 .main-container {
     margin: 10px;
     padding: 20px;
-    border: 5px solid #ddd;
-    background-color: white;
     width: 700px;
     height: 750px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 .filter-container {
     margin: 10px;
     padding: 20px;
-    border: 5px solid #ddd;
     height: 750px;
     width: 200px;
-    background-color: white;
     font-family: "Anta", sans-serif;
     font-size: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+
 }
 .images-container {
     display: flex;
@@ -167,6 +171,11 @@
     background-color: black;
     cursor: pointer;
 }
+
+.filterbutton:hover{
+    background-color: #333;
+}
+
 .filterprice{
     font-family: "Anta", sans-serif;
     width: 70px;
@@ -283,7 +292,9 @@ body {
     background-color: black;
     cursor: pointer;
 }
-
+.addgamebutton:hover{
+    background-color: #333;
+}
 .deletegameform{
     position: absolute;
     bottom: 700px;
@@ -305,7 +316,9 @@ body {
     background-color: black;
     cursor: pointer;
 }
-
+.deletegamebutton:hover{
+    background-color: #333;
+}
 .pagination {
     display: flex;
     justify-content: space-between;
@@ -353,6 +366,9 @@ body {
     color: white;
     background-color: black;
     cursor: pointer;
+}
+.editgamebutton:hover{
+    background-color: #333;
 }
 .editgamechoose{
     position:relative;
@@ -423,7 +439,9 @@ body {
     color: white;
     cursor: pointer;
 }
-
+.detailsaddtocartbutton:hover{
+    background-color: #333;
+}
 .detailsdescription{
     text-align: center;
     margin-top: 100px;
@@ -462,4 +480,190 @@ body {
 
 .text-danger{
     font-size: 12px;
+}
+
+.login-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    height: 400px;
+}
+
+.login-container h2 {
+    font-family: 'Anta', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.login-container p {
+    font-family: 'Anta', sans-serif;
+    font-size: 23px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container input[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+
+}
+.login-container button {
+    width: 250px;
+    height: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+
+}
+.register-container button {
+    width: 250px;
+    height: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+
+}
+.login-container input[type="submit"]:hover {
+    background-color: #333;
+}
+.login-container button:hover {
+    background-color: #333;
+}
+.register-container button:hover {
+    background-color: #333;
+}
+
+.login-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-family: 'Anta', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+.login-container input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.register-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.register-container h2 {
+    font-family: 'Anta', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.register-container input[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+}
+
+.register-container input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.register-container > p{
+    font-family: "Anta", sans-serif;
+    font-size: 30px;
+}
+.register-container > a{
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+.login-container > a{
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+.login-container > a:hover{
+    background-color: #333;
+}
+.register-container > a:hover{
+    background-color: #333;
 }
