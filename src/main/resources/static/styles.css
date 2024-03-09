@@ -16,7 +16,7 @@
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 160px;
+    min-width: 163px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     font-family: "Anta", sans-serif;
     z-index: 1;
@@ -69,6 +69,7 @@
     font-family: "Anta", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 20px;
 }
 
 .navsite:hover {
@@ -157,6 +158,7 @@
     font-family: "Anta", sans-serif;
     font-size: 15px;
     color: black;
+
 }
 
 .filterbutton{
@@ -267,13 +269,13 @@ body {
 }
 
 .addgameform{
-    background-color: white;
     height: 700px;
     width: 800px;
     margin: 20px;
-    border-color: lightgray;
-    border-width: 5px;
-    border-style: solid;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+
 }
 
 
@@ -345,10 +347,9 @@ body {
 }
 
 .editgameform{
-    background-color: white;
-    border-style: solid;
-    border-width: 5px;
-    border-color: lightgray;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
     width: 800px;
     height: 700px;
     margin: 50px;
@@ -395,10 +396,9 @@ body {
 
 
 .detailscontainer {
-    background-color: white;
-    border-color: lightgray;
-    border-width: 5px;
-    border-style: solid;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
     height: auto;
     width: 1000px;
     margin: 50px;
