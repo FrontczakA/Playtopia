@@ -1,4 +1,4 @@
-.dropbtn {
+.dropbtn,.dropbtn-admin {
     background-color: #000;
     color: white;
     padding: 16px;
@@ -6,12 +6,11 @@
     font-family: "Anta", sans-serif;
     border: none;
 }
-
-.dropdown {
+.dropdown-admin{
     position: absolute;
-    display: inline-block;
-    left: 15px;
+    left:20px;
 }
+
 
 .dropdown-content {
     display: none;
@@ -33,8 +32,11 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
+.dropdown-admin:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: white; color: black;}
+.dropdown:hover .dropbtn-admin {background-color: white; color: black;}
+.dropdown-admin:hover .dropbtn-admin {background-color: white; color: black;}
 
 
 .topnav {
@@ -410,13 +412,16 @@ body {
     margin-left: 180px;
 }
 
-.detailsaddtocart{
+.detailsaddtocartbutton{
     margin-left: 0px;
     width: 200px;
     height: 75px;
     font-family: "Anta", sans-serif;
     font-size: 30px;
     border-radius: 12px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
 }
 
 .detailsdescription{

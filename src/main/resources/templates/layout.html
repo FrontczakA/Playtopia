@@ -17,25 +17,38 @@
 <body>
 <div class="topnav" th:fragment="navbar">
     <nav>
-        <div class="dropdown">
-            <button class="dropbtn">Admin</button>
+        <div class="dropdown-admin">
+            <button class="dropbtn-admin">Admin</button>
             <div class="dropdown-content">
                 <a th:href="@{/games/new}">Add game</a>
                 <a th:href="@{/games/edit}">Update game</a>
                 <a th:href="@{/games/delete}">Delete game</a>
             </div>
         </div>
-        <a class="navsite" href="#">PLAYSTATION</a>
-        <a class="navsite" href="#">PC</a>
+        <div class="dropdown">
+            <button class="dropbtn">PLAYSTATION</button>
+            <div class="dropdown-content">
+                <a th:href="@{/games/filter(min=0, max=1000.00, console='PS4', category='')}">PS4</a>
+                <a th:href="@{/games/filter(min=0, max=1000.00, console='PS5', category='')}">PS5</a>
+            </div>
+        </div>
+        <a class="navsite" th:href="@{/games/filter(min=0, max=1000.00, console='PC', category='')}">PC</a>
         <a class="logo" th:href="@{/games}">Playtopia</a>
-        <a class="navsite" href="#">XBOX</a>
-        <a class="navsite" href="#">NINTENDO</a>
+        <div class="dropdown">
+            <button class="dropbtn">XBOX</button>
+            <div class="dropdown-content">
+                <a th:href="@{/games/filter(min=0, max=1000.00, console='XBOX ONE', category='')}">XBOX ONE</a>
+                <a th:href="@{/games/filter(min=0, max=1000.00, console='XBOX SERIES X', category='')}">XBOX SERIES X</a>
+            </div>
+        </div>
+        <a class="navsite" th:href="@{/games/filter(min=0, max=1000.00, console='Switch', category='')}">NINTENDO</a>
         <div class="loginregisterdiv">
             <a class="loginregister" href="#">LOGIN</a>
             <a class="loginregister" href="#">REGISTER</a>
         </div>
     </nav>
 </div>
+
 <div class="container">
 
 
