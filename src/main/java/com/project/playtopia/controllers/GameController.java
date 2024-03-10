@@ -31,7 +31,7 @@ public class GameController {
         return "games-list";
     }
 
-    @PostMapping("/new")
+    @PostMapping("/admin/new")
     String addNewGame(@Validated @ModelAttribute("game") Game game, BindingResult result){
         if(result.hasErrors()) {
             return "add-game";
@@ -39,21 +39,21 @@ public class GameController {
         gameService.saveGame(game);
         return "redirect:/games";
     }
-    @GetMapping("/new")
+    @GetMapping("/admin/new")
     public String addGameForm(Model model){
         Game game = new Game();
         model.addAttribute("game", game);
         return "add-game";
     }
 
-    @GetMapping("/delete")
+    @GetMapping("/admin/delete")
     String deleteGameForm(Model model){
         List<GameDto> gamesList = gameService.findAllGames();
         model.addAttribute("gamesList", gamesList);
         return "delete-game";
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/admin/delete")
     String deleteGame(@RequestParam("gameId") Long id, Model model) {
         gameService.deleteGame(id);
         List<GameDto> gamesList = gameService.findAllGames();
@@ -61,7 +61,7 @@ public class GameController {
         return "redirect:/games";
     }
 
-    @GetMapping("/edit")
+    @GetMapping("/admin/edit")
     String editGameForm(Model model){
         List<GameDto> gamesList = gameService.findAllGames();
         model.addAttribute("gamesList", gamesList);
@@ -69,7 +69,7 @@ public class GameController {
         return "edit-game";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/admin/edit")
     String editGame(@RequestParam("id") Long id, Model model, @Validated @ModelAttribute("game") Game game, BindingResult result){
         if(result.hasErrors()) {
             model.addAttribute("game", game);
