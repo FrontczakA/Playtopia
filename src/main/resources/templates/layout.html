@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -18,8 +18,8 @@
 <div class="topnav" th:fragment="navbar">
     <nav>
         <div class="dropdown-admin">
-            <button class="dropbtn-admin">Admin</button>
-            <div class="dropdown-content">
+            <button class="dropbtn-admin" sec:authorize="hasRole('ADMIN')">Admin</button>
+            <div class="dropdown-content" sec:authorize="hasRole('ADMIN')">
                 <a th:href="@{/games/admin/new}">Add game</a>
                 <a th:href="@{/games/admin/edit}">Update game</a>
                 <a th:href="@{/games/admin/delete}">Delete game</a>
@@ -42,10 +42,20 @@
             </div>
         </div>
         <a class="navsite" th:href="@{/games/filter(min=0, max=1000.00, console='Switch', category='')}">NINTENDO</a>
-        <div class="loginregisterdiv">
-            <a class="loginregister" th:href="@{/login}">LOGIN</a>
-            <a class="loginregister" th:href="@{/register}">REGISTER</a>
-        </div>
+            <div class="loginregisterdiv" >
+                <a class="loginregister" th:href="@{/login}"  sec:authorize="isAnonymous()" >LOGIN</a>
+                <a class="loginregister" th:href="@{/register}" sec:authorize="isAnonymous()">REGISTER</a>
+
+                <div class="dropdown" sec:authorize="isAuthenticated()">
+                    <button class="dropbtn">Hello, <span th:text="${#authentication.principal.username}">Username</span>!</button>
+                    <div class="dropdown-content">
+                        <a href="#">Profile Details</a>
+                        <a href="#">My Orders</a>
+                        <a th:href="@{/logout}">Logout</a>
+                    </div>
+                </div>
+
+            </div>
     </nav>
 </div>
 

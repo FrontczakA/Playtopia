@@ -667,3 +667,14 @@ body {
 .register-container > a:hover{
     background-color: #333;
 }
+
+.dropdown-user {
+    position: relative;
+    right: 20px;
+    z-index: 2;
+}
+
+.error-message {
+    color: red;
+    font-size: 20px;
+}
