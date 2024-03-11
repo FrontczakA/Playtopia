@@ -17,7 +17,7 @@
 
 <div class="container">
     <div class="deletegameform">
-        <form role="form" method="post" th:action="@{/games/delete}">
+        <form role="form" method="post" th:action="@{/games/admin/delete}">
             <select class="deleteselect" name="gameId">
                 <option th:each="game : ${gamesList}" th:value="${game.id}" th:text="${game.title + ' - ' + game.platform}"></option>
             </select>

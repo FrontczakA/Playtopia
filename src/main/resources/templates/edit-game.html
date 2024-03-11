@@ -18,7 +18,7 @@
 <div class="container">
 
     <div class="editgameform">
-        <form role="form" method="post" th:action="@{/games/edit}" th:object="${game}">
+        <form role="form" method="post" th:action="@{/games/admin/edit}" th:object="${game}">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title" th:value="${game.title}">

@@ -16,7 +16,7 @@
 <div class="topnav" th:insert="~{layout :: navbar}"></div>
 <div class="container">
   <div class="addgameform">
-    <form role="form" method="post" th:action="@{/games/new}" th:object="${game}">
+    <form role="form" method="post" th:action="@{/games/admin/new}" th:object="${game}">
       <div class="form-group">
         <label for="title">Title</label>
         <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">

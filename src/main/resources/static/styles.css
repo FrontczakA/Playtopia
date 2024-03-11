@@ -267,7 +267,9 @@ body {
         margin: 0% 3%;
     }
 }
-
+.form-group{
+    margin: 25px;
+}
 .addgameform{
     height: 700px;
     width: 800px;
@@ -278,10 +280,6 @@ body {
 
 }
 
-
-.form-group{
-    margin: 25px;
-}
 .addgamebutton{
     bottom: 105px;
     left: 900px;
