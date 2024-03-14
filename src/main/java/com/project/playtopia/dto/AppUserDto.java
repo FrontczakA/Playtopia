@@ -35,7 +35,12 @@ public class AppUserDto {
     @NotEmpty(message ="This field can't be empty!")
     String surname;
 
-    @NotEmpty(message ="This field can't be empty!")
-    String address;
+    String street;
+
+    String city;
+
+    String postalCode;
+
+    String country;
 
 }

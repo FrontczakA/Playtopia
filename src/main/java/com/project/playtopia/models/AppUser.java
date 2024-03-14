@@ -1,9 +1,6 @@
 package com.project.playtopia.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -35,8 +32,13 @@ public class AppUser {
     @NotEmpty(message ="This field can't be empty!")
     String surname;
 
-    @NotEmpty(message ="This field can't be empty!")
-    String address;
+    String street;
+
+    String city;
+
+    String postalCode;
+
+    String country;
 
     String role;
 }

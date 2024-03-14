@@ -16,25 +16,32 @@
 <div class="topnav" th:insert="~{layout :: navbar}"></div>
 <div class="container">
     <div class="user-details-container">
-    <h1>Profile Details</h1>
-    <div class="user-details">
-        <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
-        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
-        <p><strong>Name:</strong> <span th:text="${user.name}"></span></p>
-        <p><strong>Surname:</strong> <span th:text="${user.surname}"></span></p>
-    </div>
-    <div class="user-actions">
-        <a th:href="@{'/change-password/' + ${user.id}}" class="userdetail-action">Change Password</a>
-        <a th:href="@{'/change-email/' + ${user.id}}" class="userdetail-action">Change Email</a>
-        <a th:href="@{'/change-username/' + ${user.id}}" class="userdetail-action">Change Username</a>
-    </div>
-    <div class="delete-account">
-        <a th:href="@{'/delete-account/' + ${user.id}}"><button class="userdetail-delete-button">Delete Account</button></a>
-    </div>
-    <div th:if="${user == null}">
-        <p>Please log in to view your profile.</p>
-        <a th:href="@{/login}" class="userdetail-login-link">Login</a>
-    </div>
+        <h1>Profile Details</h1>
+        <div class="user-data">
+            <div class="user-details">
+                <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                <p><strong>Name:</strong> <span th:text="${user.name}"></span></p>
+                <p><strong>Surname:</strong> <span th:text="${user.surname}"></span></p>
+            </div>
+            <div class="user-address">
+                <p><strong>Street:</strong> <span th:text="${user.street}"></span></p>
+                <p><strong>City:</strong> <span th:text="${user.city}"></span></p>
+                <p><strong>Postal code:</strong> <span th:text="${user.postalCode}"></span></p>
+                <p><strong>Country:</strong> <span th:text="${user.country}"></span></p>
+            </div>
+        </div>
+        <div class="user-actions">
+            <a th:href="@{'/change-password/' + ${user.id}}" class="userdetail-changepassword">Change Password</a>
+            <a th:href="@{'/change-email/' + ${user.id}}" class="userdetail-changeemail">Change Email</a>
+            <a th:href="@{'/change-username/' + ${user.id}}" class="userdetail-changeusername">Change Username</a>
+            <a th:href="@{'/change-address/' + ${user.id}}" class="userdetail-changeaddress">Change Address</a>
+            <a th:href="@{'/delete-account/' + ${user.id}}" class="userdetail-delete-button">Delete Account"</a>
+        </div>
+        <div th:if="${user == null}">
+            <p>Please log in to view your profile.</p>
+            <a th:href="@{/login}" class="userdetail-login-link">Login</a>
+        </div>
     </div>
 </div>
 <footer th:insert="~{layout :: footer}"></footer>
