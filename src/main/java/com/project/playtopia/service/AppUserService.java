@@ -41,5 +41,11 @@ public class AppUserService implements UserDetailsService {
     public AppUser saveUser(AppUser user){
         return appUserRepository.save(user);
     }
+    public Optional<AppUser> findUserById(Long id){
+        return appUserRepository.findById(id);
+    }
 
+    public Optional<AppUser> findUserByUsername(String username){
+        return appUserRepository.findByUsername(username);
+    }
 }

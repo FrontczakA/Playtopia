@@ -1,4 +1,4 @@
-package com.project.playtopia.models;
+package com.project.playtopia.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AppUser {
+public class AppUserDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -38,5 +38,4 @@ public class AppUser {
     @NotEmpty(message ="This field can't be empty!")
     String address;
 
-    String role;
 }

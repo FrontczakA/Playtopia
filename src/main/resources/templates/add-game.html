@@ -20,10 +20,8 @@
       <div class="form-group">
         <label for="title">Title</label>
         <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">
-        <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
+        <p th:if="${#fields.hasErrors('title')}" class="error-message" th:errors="*{title}"></p>
       </div>
-
-
 
       <div class="form-group">
         <label for="genre">Genre</label>
@@ -39,7 +37,7 @@
           <option value="MOBA">MOBA</option>
           <option value="Party">Party</option>
         </select>
-        <p th:if="${#fields.hasErrors('genre')}" class="text-danger" th:errors="*{genre}"></p>
+        <p th:if="${#fields.hasErrors('genre')}" class="error-message" th:errors="*{genre}"></p>
       </div>
 
       <div class="form-group">
@@ -53,38 +51,35 @@
           <option value="PC">PC</option>
           <option value="Switch">Switch</option>
         </select>
-        <p th:if="${#fields.hasErrors('platform')}" class="text-danger" th:errors="*{platform}"></p>
+        <p th:if="${#fields.hasErrors('platform')}" class="error-message" th:errors="*{platform}"></p>
       </div>
-
 
       <div class="form-group">
         <label for="photoUrl">Photo</label>
-        <input name="description" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url">
-        <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+        <input name="photoUrl" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url">
+        <p th:if="${#fields.hasErrors('photoUrl')}" class="error-message" th:errors="*{photoUrl}"></p>
       </div>
 
       <div class="form-group">
-        <label for="photoUrl">Price</label>
-        <input name="description" type="text" th:field="*{price}" class="form-control" id="price" placeholder="Price">
-        <p th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="*{price}"></p>
+        <label for="price">Price</label>
+        <input name="price" type="text" th:field="*{price}" class="form-control" id="price" placeholder="Price">
+        <p th:if="${#fields.hasErrors('price')}" class="error-message" th:errors="*{price}"></p>
       </div>
 
-      <div class="form-group ">
-        <label for="photoUrl">In stock</label>
-        <input type="number" name="description" th:field="*{inStock}" class="form-control" id="inStock" placeholder="inStock">
-        <p th:if="${#fields.hasErrors('inStock')}" class="text-danger" th:errors="*{inStock}"></p>
+      <div class="form-group">
+        <label for="inStock">In stock</label>
+        <input type="number" name="inStock" th:field="*{inStock}" class="form-control" id="inStock" placeholder="In Stock">
+        <p th:if="${#fields.hasErrors('inStock')}" class="error-message" th:errors="*{inStock}"></p>
       </div>
 
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="7" cols="80">
-          </textarea>
-        <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
+        <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="8" cols="45"></textarea>
+        <p th:if="${#fields.hasErrors('description')}" class="error-message" th:errors="*{description}"></p>
       </div>
+
       <button type="submit" class="addgamebutton">Create</button>
-
     </form>
-
   </div>
 </div>
 <footer th:insert="~{layout :: footer}"></footer>

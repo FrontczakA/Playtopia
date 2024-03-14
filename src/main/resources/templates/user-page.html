@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Details</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" th:insert="~{layout :: navbar}"></div>
+<div class="container">
+    <div class="user-details-container">
+    <h1>Profile Details</h1>
+    <div class="user-details">
+        <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+        <p><strong>Name:</strong> <span th:text="${user.name}"></span></p>
+        <p><strong>Surname:</strong> <span th:text="${user.surname}"></span></p>
+    </div>
+    <div class="user-actions">
+        <a th:href="@{'/change-password/' + ${user.id}}" class="userdetail-action">Change Password</a>
+        <a th:href="@{'/change-email/' + ${user.id}}" class="userdetail-action">Change Email</a>
+        <a th:href="@{'/change-username/' + ${user.id}}" class="userdetail-action">Change Username</a>
+    </div>
+    <div class="delete-account">
+        <a th:href="@{'/delete-account/' + ${user.id}}"><button class="userdetail-delete-button">Delete Account</button></a>
+    </div>
+    <div th:if="${user == null}">
+        <p>Please log in to view your profile.</p>
+        <a th:href="@{/login}" class="userdetail-login-link">Login</a>
+    </div>
+    </div>
+</div>
+<footer th:insert="~{layout :: footer}"></footer>
+</body>
+</html>

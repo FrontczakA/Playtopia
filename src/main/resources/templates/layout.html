@@ -49,11 +49,12 @@
                 <div class="dropdown" sec:authorize="isAuthenticated()">
                     <button class="dropbtn">Hello, <span th:text="${#authentication.principal.username}">Username</span>!</button>
                     <div class="dropdown-content">
-                        <a href="#">Profile Details</a>
+                        <a th:href="@{/profile}">Profile Details</a>
                         <a href="#">My Orders</a>
                         <a th:href="@{/logout}">Logout</a>
                     </div>
                 </div>
+
 
             </div>
     </nav>
