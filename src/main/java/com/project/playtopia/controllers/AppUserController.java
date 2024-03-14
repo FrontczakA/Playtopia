@@ -36,18 +36,13 @@ public class AppUserController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("user") AppUser user, BindingResult result, Model model){
+    public String register(@Valid @ModelAttribute("user") AppUser user, BindingResult result){
         if(result.hasErrors()){
             return "register";
         }
-        AppUser appUser = new AppUser();
-        appUser.setUsername(user.getUsername());
-        appUser.setEmail(user.getEmail());
-        appUser.setName(user.getName());
-        appUser.setSurname(user.getSurname());
-        appUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        appUser.setRole("USER");
-        appUserService.saveUser(appUser);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("USER");
+        appUserService.saveUser(user);
         return "redirect:/games";
     }
     @GetMapping("/profile")

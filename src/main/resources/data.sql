@@ -1,4 +1,6 @@
--- Wstawianie danych tylko gdy nie istnieją w tabeli
+INSERT INTO app_user (username, password, role)
+SELECT 'admin', '$2a$10$cJwiMgpjL6DusmkauKSnOeUJft7UC3W6ttFD1tjaLowIqXlKA5X8G', 'ADMIN'
+WHERE NOT EXISTS (SELECT 1 FROM app_user WHERE username = 'admin');
 INSERT INTO game (price, title, description, genre, platform, photo_url, in_stock)
 SELECT data.price, data.title, data.description, data.genre, data.platform, data.photo_url, data.in_stock
 FROM (

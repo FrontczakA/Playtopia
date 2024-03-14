@@ -19,7 +19,7 @@ public class AppUser {
     String username;
 
     @NotEmpty(message ="This field can't be empty!")
-    @Size(min = 6, message = "Password must be at least 6 characters long")
+    @Size(min = 5, message = "Password must be at least 6 characters long")
     String password;
 
     @NotEmpty(message ="This field can't be empty!")
