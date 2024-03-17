@@ -95,4 +95,14 @@ public class AppUserService implements UserDetailsService {
         return appUserRepository.findByEmail(email);
     }
 
+    public void deleteAccount(String username) throws NotFoundException {
+        Optional<AppUser> userOptional = appUserRepository.findByUsername(username);
+        if (userOptional.isPresent()) {
+            AppUser user = userOptional.get();
+            appUserRepository.delete(user);
+        } else {
+            throw new NotFoundException("User not found");
+        }
+    }
+
 }

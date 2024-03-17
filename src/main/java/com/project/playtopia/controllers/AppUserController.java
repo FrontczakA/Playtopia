@@ -190,4 +190,20 @@ public class AppUserController {
             return "change-address";
         }
     }
+    @GetMapping("/delete-account")
+    public String showDeleteAccountForm() {
+        return "delete-account";
+    }
+    @PostMapping("/delete-account")
+    public String deleteAccount(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        try {
+            appUserService.deleteAccount(username);
+            return "redirect:/logout";
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "redirect:/profile";
+        }
+    }
 }
