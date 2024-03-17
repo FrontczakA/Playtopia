@@ -378,7 +378,7 @@ body {
 
 .form-group{
     font-family: "Anta", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 .form-group input,
 .form-group select,
@@ -875,4 +875,42 @@ label {
     display: flex;
     font-size: 20px;
 
+}
+.change-user-data-container{
+     border: 2px solid #ddd;
+     border-radius: 10px;
+     background-color: #f9f9f9;
+     padding: 20px;
+     margin: 100px;
+     height:400px;
+     width:800px;
+     font-family: "Anta", sans-serif;
+     position: relative;
+
+ }
+.change-password-button,.change-email-button,.change-address-button,.change-name-button{
+    width: 150px;
+    height: 50px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+    border-radius: 12px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 7px;
+}
+.change-password-button:hover{
+    background-color: #333;
+}
+.change-email-button:hover{
+    background-color: #333;
+}
+.change-name-button:hover{
+    background-color: #333;
+}
+.change-address-button:hover{
+    background-color: #333;
 }
