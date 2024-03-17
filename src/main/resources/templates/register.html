@@ -19,7 +19,7 @@
 <div class="container">
     <div class="register-container">
         <h2>Registration</h2>
-        <form action="/register" method="post" th:object="${user}">
+        <form action="/register" method="post" th:object="${user}" onsubmit="return validatePassword()">
             <input type="text" name="name" placeholder="Name" required>
             <br>
             <input type="text" name="surname" placeholder="Surname" required>
@@ -28,17 +28,38 @@
             <br>
             <input type="text" name="username" placeholder="Username" required>
             <br>
-            <input type="password" name="password" placeholder="Password" pattern=".{5,}" title="Password must be at least 5 characters long" required>
+            <input type="password" name="password" id="password" placeholder="Password" pattern=".{5,}" title="Password must be at least 5 characters long" required>
             <br>
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" pattern=".{5,}" title="Password must be at least 5 characters long" required>
+            <input type="password" name="confirmPassword" id="confirm_password" placeholder="Confirm Password" pattern=".{5,}" title="Password must be at least 5 characters long" required>
             <br>
             <input type="submit" value="Register">
         </form>
+        <div th:if="${errorMessage}" class="error-message">
+            <p th:text="${errorMessage}"></p>
+        </div>
         <p>Already have an account?</p>
         <a th:href="@{/login}">Login</a>
     </div>
 </div>
 <footer th:insert="~{layout :: footer}"></footer>
+
+<script>
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+            return false;
+        } else {
+            confirm_password.setCustomValidity('');
+            return true;
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
 </body>
 
 </html>

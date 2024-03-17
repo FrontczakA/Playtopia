@@ -90,4 +90,9 @@ public class AppUserService implements UserDetailsService {
             throw new NotFoundException("User not found");
         }
     }
+
+    public Optional<AppUser> findUserByEmail(String email){
+        return appUserRepository.findByEmail(email);
+    }
+
 }

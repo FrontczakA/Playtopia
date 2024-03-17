@@ -34,15 +34,31 @@ public class AppUserController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("user") AppUser user, BindingResult result){
+    public String register(@Valid @ModelAttribute("user") AppUser user, BindingResult result, Model model){
         if(result.hasErrors()){
             return "register";
         }
+
+        Optional<AppUser> existingUserByUsername = appUserService.findUserByUsername(user.getUsername());
+        if(existingUserByUsername.isPresent()){
+            model.addAttribute("errorMessage", "Username already exists.");
+            return "register";
+        }
+
+        Optional<AppUser> existingUserByEmail = appUserService.findUserByEmail(user.getEmail());
+        if(existingUserByEmail.isPresent()){
+            model.addAttribute("errorMessage", "Email already exists.");
+            return "register";
+        }
+
+
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
         appUserService.saveUser(user);
         return "redirect:/games";
     }
+
     @GetMapping("/profile")
     public String userProfile(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
