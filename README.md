@@ -11,7 +11,7 @@ Completed features:
 
 Admins have special privileges, including adding new games, deleting existing ones, and updating game details. 
 
-Registration and logging in system are provided for user convenience.  
+Registration and logging in system created with Spring Security.  
 
 Users can view specific details about each game.   
 
