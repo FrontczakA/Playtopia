@@ -52,7 +52,6 @@ public class AppUserController {
         }
 
 
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
         appUserService.saveUser(user);
