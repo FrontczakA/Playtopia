@@ -1,9 +1,30 @@
-Playtopia is a Java Spring Framework project I am currently developing during my studies. It operates on a PostgreSQL database. Playtopia is an online game shop with the following planned features:
-  -Users can view a paginated list of all games and filter them.
-  -Users can view specific game details.
-  -Users can add games to their shopping basket.
-  -Users can purchase games with a simple shipping and payment system implementation.
-  -Registration and logging in system
-  -Admins can add new games, delete existing ones, and update game details.
- To run application compile code in IntelliJ and go to localhost:8080/games.
-To log in to app as admin user use 'admin' as password and login.
+Playtopia is a Java Spring Framework project currently under development. It operates on a PostgreSQL database and serves as an online game shop. Here are the planned features:
+
+Planned features:
+
+Users have the ability to add games to their shopping basket.
+
+Users can complete purchases using a straightforward payment system implementation.
+
+
+Completed features:
+
+Admins have special privileges, including adding new games, deleting existing ones, and updating game details. 
+
+Registration and logging in system created with Spring Security.  
+
+Users can view specific details about each game.   
+
+Users can browse a paginated list of all available games and filter them according to their preferences.   
+
+Users can change their data and delete account after registration in profile details page.
+
+To run the application:
+
+Compile the code in IntelliJ IDEA.
+
+Navigate to localhost:8080/games in your web browser.
+
+To log in as an admin user, use 'admin' as both the username and password.
+
+Thank you for checking out Playtopia! Feel free to contribute or provide feedback.
