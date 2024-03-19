@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -41,4 +43,8 @@ public class AppUser {
     String country;
 
     String role;
-}
+
+    @OneToMany(mappedBy = "orderOwner")
+    private List<UserOrder> userOrders;
+
+    }

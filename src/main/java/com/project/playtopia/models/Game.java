@@ -1,15 +1,14 @@
 package com.project.playtopia.models;
 
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,4 +34,7 @@ public class Game {
     @NotNull
     @Min(value = 1, message = "This must be greater than or equal to 1")
     Long inStock;
+
+    @ManyToMany(mappedBy = "basketContent")
+    private List<UserOrder> orders;
 }
