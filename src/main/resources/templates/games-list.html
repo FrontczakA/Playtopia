@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -62,8 +62,13 @@
                 <div class="image-container">
                     <img th:src="${game.photoUrl}" alt="..." width="100" height="250" />
                     <div class="button-container">
-                        <a class="addtocart">Add to cart</a>
-                        <a class="gamedetails" th:href="@{'/games/'+ ${game.id} }">Details</a>
+                        <div>
+                            <form action="/add-game-to-cart" method="post" >
+                                <input type="hidden" name="game_id" th:value="${game.id}" />
+                                <button type="submit" class="addtocart">Add to cart</button>
+                            </form>
+                            <a class="gamedetails" th:href="@{'/games/'+ ${game.id} }">Details</a>
+                        </div>
                     </div>
                 </div>
                 <p class="gametitle" th:text="${game.title}"></p>

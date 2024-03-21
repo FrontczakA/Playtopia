@@ -47,9 +47,19 @@
         </div>
         <a class="navsite" th:href="@{/games/filter(min=0, max=1000.00, console='Switch', category='')}">NINTENDO</a>
         <div class="loginregisterdiv" >
-                <div class="shopping-basket">
-                    <span class="fa fa-shopping-basket" style="font-size: 30px"></span>
+
+            <div class="shopping-basket">
+                <a class="shopping-basket-a" th:href="@{/basket}" title="Go to your basket">
+                    <span class="fa fa-shopping-basket" style="font-size: 30px;"></span>
+                </a>                <div id="game-dropdown" class="dropdown-content">
+                    <div th:each="game : ${basketGames}">
+                        <img th:src="${game.photoUrl}" alt="Game Photo" width="100" height="100">
+                        <span th:text="${game.title}"></span>
+                        <span th:text="'$' + ${game.price}"></span>
+                    </div>
                 </div>
+            </div>
+
                 <div class="dropdown">
                     <div>
                         <button class="dropbtn"><span class="fa fa-user-circle" style="font-size: 30px"></span></button>

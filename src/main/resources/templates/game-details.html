@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <div th:insert="~{layout :: navbar}"></div>
 <div class="container">
@@ -26,13 +27,14 @@
                 <p class="detailsprice" th:text="|${game.price} USD|"></p>
                 <p class="detailsplatform" th:text="|Platform: ${game.platform}|"></p>
                 <div class="quantity-controls">
-                    <button class="detailsaddtocartbutton">Add to cart</button>
-                    <button class="quantity-minus">-</button>
-                    <input type="number" class="detailsquantity" value="1" min="1">
-                    <button class="quantity-plus">+</button>
+                    <form action="/add-game-to-cart" method="post">
+                        <input type="hidden" name="game_id" th:value="${game.id}" />
+                        <button type="submit" class="detailsaddtocartbutton">Add to cart</button>
+                        <input type="number" name="quantity" class="detailsquantity" value="1" min="1" />
+
+                    </form>
                 </div>
             </div>
-
         </div>
         <div class="detailsdescription">
             <p th:text="${game.description}"></p>
@@ -40,8 +42,7 @@
     </div>
 </div>
 <footer th:insert="~{layout :: footer}"></footer>
-</body>
-</html>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const quantityInput = document.querySelector('.detailsquantity');
@@ -58,5 +59,7 @@
             quantityInput.value = parseInt(quantityInput.value) + 1;
         });
     });
-
 </script>
+</body>
+
+</html>

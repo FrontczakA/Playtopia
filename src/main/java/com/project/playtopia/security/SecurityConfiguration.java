@@ -36,6 +36,8 @@ public class SecurityConfiguration {
                     registry.requestMatchers("/games/admin/new").hasRole("ADMIN");
                     registry.requestMatchers("/games/admin/edit").hasRole("ADMIN");
                     registry.requestMatchers("/games/admin/delete").hasRole("ADMIN");
+                    registry.requestMatchers("/add-game-to-cart").authenticated();
+                    registry.requestMatchers("/basket").authenticated();
                     registry.anyRequest().permitAll();
                 })
                 .formLogin(httpSecurityFormLoginConfigurer -> {

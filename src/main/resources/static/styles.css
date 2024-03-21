@@ -721,8 +721,7 @@ body {
     opacity: 0.8;
 }
 
-.gamedetails,
-.addtocart {
+.gamedetails{
     display: none;
     position: absolute;
     left: 50%;
@@ -732,11 +731,29 @@ body {
     border: none;
     border-radius: 5px;
     font-family: "Anta", sans-serif;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
     color: white;
     background-color: #000;
     text-decoration: none;
+    line-height: 40px;
+    width: 50px;
+}
+.addtocart{
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Anta", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    color: white;
+    background-color: #000;
+
 }
 .gamedetails, .addtocart{
     height: 40px;
@@ -985,3 +1002,119 @@ label {
     background-color: darkred;
 }
 
+.shopping-basket-a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.game-item{
+    display:flex;
+    padding: 15px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 850px;
+    font-family: "Anta", sans-serif;
+}
+.basket-game-title {
+    margin-left: 50px;
+    margin-top: 40px;
+    width: 150px;
+    white-space: nowrap;
+}
+.basket-game-platform {
+    padding-left: 75px;
+    margin-top: 40px;
+    width: 50px;
+    white-space: nowrap;
+}
+.basket-game-price {
+    text-align: right;
+    margin-top: 40px;
+    padding-left: 250px;
+    width: 100px;
+    white-space: nowrap;
+}
+.game-item button{
+    margin-left: 50px;
+    margin-top: 25px;
+}
+.basket-container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: "Anta", sans-serif;
+    position: relative;
+    overflow-y: auto;
+    width: 984px;
+
+}
+.total-price{
+    position: relative;
+    top: 15px;
+    font-size: 30px;
+    display: flex;
+    font-family: "Anta", sans-serif;
+    padding-left: 30px;
+}
+.deletefromcart{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+.deletefromcart:hover{
+    background-color: indianred;
+    cursor: pointer;
+
+}
+.basket-container h1{
+    font-family: "Anta", sans-serif;
+    text-align: center;
+}
+.confirm-order{
+    margin-left: 400px;
+    margin-top: 23px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+.confirm-order:hover{
+    background-color: #333;
+}
+.empty-basket {
+    text-align: center;
+    line-height: 40px;
+}
+.empty-basket a{
+     margin-top: 20px;
+     text-decoration: none;
+     border: none;
+     border-radius: 5px;
+     background-color: #000;
+     color: white;
+     cursor: pointer;
+     font-size: 18px;
+     display: inline-block;
+     width: 150px;
+     height: 40px;
+     padding: 10px;
+ }
+
+.empty-basket a:hover{
+    background-color: #333;
+}
+.empty-basket-container{
+    height: 290px;
+}

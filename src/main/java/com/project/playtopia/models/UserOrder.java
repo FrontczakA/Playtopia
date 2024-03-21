@@ -13,7 +13,6 @@ public class UserOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Double price;
 
     @ManyToMany
