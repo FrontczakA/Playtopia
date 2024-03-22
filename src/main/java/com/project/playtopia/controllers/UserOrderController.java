@@ -27,11 +27,13 @@ public class UserOrderController {
     AppUserService appUserService;
     GameService gameService;
 
+
     public UserOrderController(UserOrderService userOrderService, AppUserService appUserService, GameService gameService) {
         this.userOrderService = userOrderService;
         this.appUserService = appUserService;
         this.gameService = gameService;
     }
+
     @PostMapping("/add-game-to-cart")
 
     public String addGameToCart(@RequestParam("game_id") Long gameId, @RequestParam(value = "quantity", defaultValue = "1") int quantity, Model model) throws NotFoundException {
@@ -74,6 +76,12 @@ public class UserOrderController {
         userOrderService.deleteGameFromCart(game_id, order_id);
         return "redirect:/basket";
     }
-
-
+    @PostMapping("/confirm-order")
+    public String confirmOrderForm(){
+        return "redirect:/confirm-order";
+    }
+    @GetMapping("/confirm-order")
+    public String confirmOrder(){
+        return "confirm-order";
+    }
 }
