@@ -25,4 +25,5 @@ public class UserOrder {
     @ManyToOne
     @JoinColumn(name = "order_owner_id")
     private AppUser orderOwner;
+
 }

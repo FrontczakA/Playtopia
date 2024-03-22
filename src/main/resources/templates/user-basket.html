@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Profile Details</title>
+    <title>Basket</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 </head>
 <body>
 <div class="topnav" th:insert="~{layout :: navbar}"></div>
@@ -21,8 +22,8 @@
         <div th:each="game: ${basketContent}">
             <div class="game-item">
                 <img th:src="${game.photoUrl}" alt="Game Image" th:width="75px" th:height="95px">
-                <p class="basket-game-title" th:text="${game.title} "></p>
-                <p class="basket-game-platform" th:text="'Platform: '+${game.platform} "></p>
+                <p class="basket-game-title" th:text="${game.title}"></p>
+                <p class="basket-game-platform" th:text="'Platform: '+${game.platform}"></p>
                 <p class="basket-game-price" th:text="${game.price}+' USD'"></p>
                 <form action="/delete-game-from-basket" method="post">
                     <input type="hidden" name="game_id" th:value="${game.id}" />
@@ -36,15 +37,55 @@
             <h2>Your basket is empty. Please add games first.</h2>
             <a th:href="@{/games}">Go back</a>
         </div>
-        <div class="total-price">
-            <p th:if="${order != null}" th:text="|Total price:  ${orderPrice} USD|">Total Price:</p>
-            <form th:if="${order != null}" action="/confirm-order" method="post">
+
+    </div>
+    <div class="order-confirm-container" th:if="${order!=null}">
+        <h1>Choose delivery</h1>
+        <div class="checkbox-container">
+            <form th:if="${order != null}" action="/confirm-order" method="post" id="deliveryForm">
                 <input type="hidden" name="order_id" th:value="${order.id}" />
-                <button type="submit" class="confirm-order">Confirm Order</button>
+                <label><input type="checkbox" name="delivery" value="standard" class="round-checkbox"> Standard</label><br>
+                <label><input type="checkbox" name="delivery" value="express" class="round-checkbox"> Express</label><br>
+                <label><input type="checkbox" name="delivery" value="same-day" class="round-checkbox"> Same Day Delivery</label><br>
+                <label><input type="checkbox" name="delivery" value="courier" class="round-checkbox"> Courier</label><br>
+                <label><input type="checkbox" name="delivery" value="parcel-locker" class="round-checkbox"> Parcel Locker</label><br>
+                <button type="submit" class="confirm-order" onclick="redirectToConfirmOrder()">Confirm Order</button>
+                <a th:href="@{/change-address}" class="order-change-address">Change Address</a>
             </form>
+
         </div>
+        <div class="order-address">
+            <h1>Address</h1>
+            <p><strong>Street:</strong> <span th:text="${user.street}"></span></p>
+            <p><strong>City:</strong> <span th:text="${user.city}"></span></p>
+            <p><strong>Postal Code:</strong> <span th:text="${user.postalCode}"></span></p>
+            <p><strong>Country:</strong> <span th:text="${user.country}"></span></p>
+        </div>
+        <div class="total-price">
+            <p th:if="${order != null}" th:text="|Total price ${orderPrice} USD|"></p>
+        </div>
+
     </div>
 </div>
 <footer th:insert="~{layout :: footer}"></footer>
+
+<script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function() {
+            checkboxes.forEach((cb) => {
+                if (cb !== this) {
+                    cb.checked = false;
+                }
+            });
+        });
+    });
+
+    function redirectToConfirmOrder() {
+        window.location.href = '/confirm-order';
+    }
+</script>
+
 </body>
 </html>

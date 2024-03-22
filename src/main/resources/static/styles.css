@@ -1045,7 +1045,7 @@ label {
     border: 2px solid #ddd;
     border-radius: 10px;
     background-color: #f9f9f9;
-    margin-left: 30px;
+    margin-left: 15px;
     margin-top: 50px;
     margin-bottom: 50px;
     font-family: "Anta", sans-serif;
@@ -1054,14 +1054,81 @@ label {
     width: 984px;
 
 }
+.order-confirm-container{
+    width: 350px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: "Anta", sans-serif;
+    height: 750px;
+    margin-top: 50px;
+    margin-left: 15px;
+
+}
+.order-confirm-container h1{
+    font-size: 30px;
+    text-align: center;
+}
 .total-price{
     position: relative;
     top: 15px;
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     font-family: "Anta", sans-serif;
-    padding-left: 30px;
+    padding-left: 5px;
+    width: 350px;
+    padding-top: 50px;
+
 }
+
+.confirm-order{
+    margin-left: 10px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    position: absolute;
+    top: 725px;
+    font-family: "Anta", sans-serif;
+}
+.order-change-address {
+    width: 150px;
+    height: 40px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 725px;
+    right: 275px;
+}
+.order-change-address:hover{
+    background-color: #333;
+}
+
+.order-address{
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+.order-address h1{
+    text-align: center;
+    font-size: 30px;
+}
+.order-address p{
+    font-size: 20px;
+    font-family: "Anta", sans-serif;
+}
+
 .deletefromcart{
     background-color: red;
     width: 40px;
@@ -1078,18 +1145,7 @@ label {
     font-family: "Anta", sans-serif;
     text-align: center;
 }
-.confirm-order{
-    margin-left: 400px;
-    margin-top: 23px;
-    width: 150px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    background-color: #000;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-}
+
 .confirm-order:hover{
     background-color: #333;
 }
@@ -1110,6 +1166,7 @@ label {
      width: 150px;
      height: 40px;
      padding: 10px;
+
  }
 
 .empty-basket a:hover{
@@ -1117,4 +1174,32 @@ label {
 }
 .empty-basket-container{
     height: 290px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 35px;
+}
+
+.checkbox-label {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.round-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    border: 2px solid #555;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.round-checkbox:checked {
+    background-color: #555;
 }

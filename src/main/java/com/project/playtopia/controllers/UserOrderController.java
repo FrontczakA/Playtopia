@@ -50,6 +50,7 @@ public class UserOrderController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         Optional<AppUser> userOpt = appUserService.findUserByUsername(username);
+
         if (userOpt.isPresent()) {
             AppUser user = userOpt.get();
             List<UserOrder> userOrders = user.getUserOrders();
@@ -61,6 +62,7 @@ public class UserOrderController {
                     model.addAttribute("basketContent", basketContent);
                     model.addAttribute("orderPrice", orderPrice);
                     model.addAttribute("order", order);
+                    model.addAttribute("user", user);
                 }
             }
         }
@@ -72,5 +74,6 @@ public class UserOrderController {
         userOrderService.deleteGameFromCart(game_id, order_id);
         return "redirect:/basket";
     }
+
 
 }
