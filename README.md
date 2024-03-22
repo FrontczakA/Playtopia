@@ -2,10 +2,7 @@ Playtopia is a Java Spring Framework project currently under development. It ope
 
 Planned features:
 
-Users have the ability to add games to their shopping basket.
-
 Users can complete purchases using a straightforward payment system implementation.
-
 
 Completed features:
 
@@ -18,6 +15,8 @@ Users can view specific details about each game.
 Users can browse a paginated list of all available games and filter them according to their preferences.   
 
 Users can change their data and delete account after registration in profile details page.
+
+Users have the ability to delete and add games to their shopping basket.
 
 To run the application:
 
