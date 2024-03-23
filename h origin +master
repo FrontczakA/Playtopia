@@ -8,7 +8,7 @@ Date:   Wed Mar 6 19:32:23 2024 +0100
 Author: altut <frontczak-artur@wp.pl>
 Date:   Tue Mar 5 19:35:41 2024 +0100
 
-    added data.sql file with test data
+    added 02-data.sql file with test data
 
 [33mcommit 3435f7565752e998aa5c5814cedbb88fb23006d5[m
 Author: altut <frontczak-artur@wp.pl>
