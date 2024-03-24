@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add new game</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" th:insert="~{layout :: navbar}"></div>
+<div class="container">
+  <div class="addgameform">
+    <form role="form" method="post" th:action="@{/games/admin/new}" th:object="${game}">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title">
+        <p th:if="${#fields.hasErrors('title')}" class="error-message" th:errors="*{title}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select name="genre" th:field="*{genre}" class="form-control" id="genre">
+          <option value="">Select Genre</option>
+          <option value="Action-Adventure">Action-Adventure</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="RPG">RPG</option>
+          <option value="Shooter">FPS</option>
+          <option value="Sports">Sports</option>
+          <option value="Strategy">Strategy</option>
+          <option value="MOBA">MOBA</option>
+          <option value="Party">Party</option>
+        </select>
+        <p th:if="${#fields.hasErrors('genre')}" class="error-message" th:errors="*{genre}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="platform">Platform</label>
+        <select name="platform" th:field="*{platform}" class="form-control" id="platform">
+          <option value="">Select Platform</option>
+          <option value="PS4">PS4</option>
+          <option value="PS5">PS5</option>
+          <option value="XBOX ONE">XBOX ONE</option>
+          <option value="XBOX SERIES X">XBOX SERIES X</option>
+          <option value="PC">PC</option>
+          <option value="Switch">Switch</option>
+        </select>
+        <p th:if="${#fields.hasErrors('platform')}" class="error-message" th:errors="*{platform}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="photoUrl">Photo</label>
+        <input name="photoUrl" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url">
+        <p th:if="${#fields.hasErrors('photoUrl')}" class="error-message" th:errors="*{photoUrl}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input name="price" type="text" th:field="*{price}" class="form-control" id="price" placeholder="Price">
+        <p th:if="${#fields.hasErrors('price')}" class="error-message" th:errors="*{price}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="inStock">In stock</label>
+        <input type="number" name="inStock" th:field="*{inStock}" class="form-control" id="inStock" placeholder="In Stock">
+        <p th:if="${#fields.hasErrors('inStock')}" class="error-message" th:errors="*{inStock}"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="8" cols="45"></textarea>
+        <p th:if="${#fields.hasErrors('description')}" class="error-message" th:errors="*{description}"></p>
+      </div>
+
+      <button type="submit" class="addgamebutton">Create</button>
+    </form>
+  </div>
+</div>
+<footer th:insert="~{layout :: footer}"></footer>
+</body>
+</html>

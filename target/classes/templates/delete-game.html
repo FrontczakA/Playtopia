@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete game</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" th:insert="~{layout :: navbar}"></div>
+
+<div class="container">
+    <div class="deletegameform">
+        <form role="form" method="post" th:action="@{/games/admin/delete}">
+            <select class="deleteselect" name="gameId">
+                <option th:each="game : ${gamesList}" th:value="${game.id}" th:text="${game.title + ' - ' + game.platform}"></option>
+            </select>
+            <button type="submit" class="deletegamebutton">Delete</button>
+        </form>
+    </div>
+</div>
+<footer th:insert="~{layout :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit game</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" th:insert="~{layout :: navbar}"></div>
+
+<div class="container">
+
+    <div class="editgameform">
+        <form role="form" method="post" th:action="@{/games/admin/edit}" th:object="${game}">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title" th:value="${game.title}">
+                <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="photoUrl">Genre</label>
+                <input name="genre" th:field="*{genre}" class="form-control" id="genre" placeholder="Genre" th:value="${game.genre}">
+                <p th:if="${#fields.hasErrors('genre')}" class="text-danger" th:errors="*{genre}"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="platform">Platform</label>
+                <input name="platform" th:field="*{platform}" class="form-control" id="platform" placeholder="Platform" th:value="${game.platform}">
+                <p th:if="${#fields.hasErrors('platform')}" class="text-danger" th:errors="*{platform}"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="photoUrl">Photo</label>
+                <input name="photoUrl" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url" th:value="${game.photoUrl}">
+                <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input name="price" type="text" th:field="*{price}" class="form-control" id="price" placeholder="Price" th:value="${game.price}">
+                <p th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="*{price}"></p>
+            </div>
+
+            <div class="form-group ">
+                <label for="inStock">In stock</label>
+                <input type="number" name="inStock" th:field="*{inStock}" class="form-control" id="inStock" placeholder="In Stock" th:value="${game.inStock}">
+                <p th:if="${#fields.hasErrors('inStock')}" class="text-danger" th:errors="*{inStock}"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="8" cols="45" th:text="${game.description}"></textarea>
+                <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
+            </div>
+
+            <div class="editgamechoose">
+                <select class="editselect" id="gameSelect" name="id" onchange="fillForm()">
+                    <option th:each="game : ${gamesList}" th:value="${game.id}"
+                            th:text="${game.title + ' - ' + game.platform}"
+                            th:attr="data-gameInfo=${game.title + ',' + game.genre + ',' + game.platform + ','+game.photoUrl + ',' + game.price + ',' +  ',' + game.description}">
+                    </option>
+                </select>
+
+            </div>
+
+            <button type="submit" class="editgamebutton">Edit</button>
+
+        </form>
+
+    </div>
+</div>
+<footer th:insert="~{layout :: footer}"></footer>
+</body>
+</html>
+<script th:inline="javascript">
+    function fillForm() {
+        var select = document.getElementById("gameSelect");
+        var selectedOption = select.options[select.selectedIndex];
+        var gameInfo = selectedOption.getAttribute("data-gameInfo").split(',');
+
+        document.getElementById("title").value = gameInfo[0];
+        document.getElementById("genre").value = gameInfo[1];
+        document.getElementById("platform").value = gameInfo[2];
+        document.getElementById("photoUrl").value = gameInfo[3];
+        document.getElementById("price").value = gameInfo[4];
+        document.getElementById("inStock").value = gameInfo[5];
+        document.getElementById("description").value = gameInfo[6];
+    }
+</script>

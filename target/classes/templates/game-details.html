@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Games detail</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div th:insert="~{layout :: navbar}"></div>
+<div class="container">
+    <div class="detailscontainer">
+        <div class="detailstitle">
+            <h1 th:text="${game.title}"></h1>
+        </div>
+        <div class="detailsimage">
+            <img th:src="${game.photoUrl}" width="275" height="400">
+            <div class="detailsbuy">
+                <p class="detailsprice" th:text="|${game.price} USD|"></p>
+                <p class="detailsplatform" th:text="|Platform: ${game.platform}|"></p>
+                <div class="quantity-controls">
+                    <form action="/add-game-to-cart" method="post">
+                        <input type="hidden" name="game_id" th:value="${game.id}" />
+                        <button type="submit" class="detailsaddtocartbutton">Add to cart</button>
+                        <input type="number" name="quantity" class="detailsquantity" value="1" min="1" />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="detailsdescription">
+            <p th:text="${game.description}"></p>
+        </div>
+    </div>
+</div>
+<footer th:insert="~{layout :: footer}"></footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const quantityInput = document.querySelector('.detailsquantity');
+        const minusButton = document.querySelector('.quantity-minus');
+        const plusButton = document.querySelector('.quantity-plus');
+
+        minusButton.addEventListener('click', function() {
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+
+        plusButton.addEventListener('click', function() {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    });
+</script>
+</body>
+
+</html>

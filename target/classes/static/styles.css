@@ -1,0 +1,1247 @@
+.dropbtn,.dropbtn-admin {
+    background-color: #000;
+    color: white;
+    padding: 16px;
+    font-size: 20px;
+    font-family: "Anta", sans-serif;
+    border: none;
+}
+.dropdown-admin{
+    position: absolute;
+    left:20px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 163px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    font-family: "Anta", sans-serif;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown-admin:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: white; color: black;}
+.dropdown:hover .dropbtn-admin {background-color: white; color: black;}
+.dropdown-admin:hover .dropbtn-admin {background-color: white; color: black;}
+
+.dropdown:hover .dropdown-content-user {display: block; left: auto; right: 0;}
+.dropdown-content-user a:hover {background-color: #ddd;}
+.dropdown-content-user {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 163px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    font-family: "Anta", sans-serif;
+    z-index: 1;
+
+}
+
+.dropdown-content-user a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.topnav {
+    background: #000;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.topnav nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    color: whitesmoke;
+    font-size: 40px;
+    font-family: 'MedievalSharp';
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.navsite {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.navsite:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.shopping-basket{
+    font-size: 25px;
+    padding-right: 30px;
+    color: whitesmoke;
+    padding-top: 15px;
+}
+.user-icon{
+    font-size: 30px;
+}
+.loginregister:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.loginregisterdiv {
+    position: absolute;
+    right: 10px;
+    display: flex;
+}
+
+.loginregister {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background-image: url("https://wallpapers-hub.art/wallpaper-images/167881.jpg");
+    margin: 0;
+    width: 1920px;
+    height: 850px;
+}
+
+.main-container {
+    margin: 10px;
+    padding: 20px;
+    width: 700px;
+    height: 750px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.filter-container {
+    margin: 10px;
+    padding: 20px;
+    height: 750px;
+    width: 200px;
+    font-family: "Anta", sans-serif;
+    font-size: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+
+}
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.gametitle {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    font-family: "Anta", sans-serif;
+}
+
+.gamedetails {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+    color: black;
+
+}
+
+.filterbutton{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-family: "Anta", sans-serif;
+    border-radius: 12px;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.filterbutton:hover{
+    background-color: #333;
+}
+
+.filterprice{
+    font-family: "Anta", sans-serif;
+    width: 70px;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 15px;
+
+}
+.filtercategory{
+    font-family: "Anta", sans-serif;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.filter-container h2 {
+    text-align: center;
+}
+
+.filter-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.filter-container ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.footer {
+    background: #000;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+}
+
+.footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: rgb(128, 128, 128);
+    font-size: 0.8em;
+}
+
+.footer .row a {
+    text-decoration: none;
+    color: rgb(128, 128, 128);
+    transition: 0.5s;
+}
+
+.footer .row a:hover {
+    color: #fff;
+}
+
+.footer .row ul {
+    width: 100%;
+}
+
+.footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+    .footer {
+        text-align: left;
+        padding: 5%;
+    }
+
+    .footer .row ul li {
+        display: block;
+        margin: 10px 0px;
+        text-align: left;
+    }
+
+    .footer .row a i {
+        margin: 0% 3%;
+    }
+}
+.form-group{
+    margin: 25px;
+}
+.addgameform{
+    height: 700px;
+    width: 800px;
+    margin: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+
+}
+
+.addgamebutton{
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    bottom: 5px;
+    left: 900px;
+}
+.addgamebutton:hover{
+    background-color: #333;
+}
+.deletegameform{
+    position: absolute;
+    bottom: 700px;
+
+}
+
+.deleteselect{
+    width: 350px;
+    height: 60px;
+    font-size: 20px;
+    font-family: "Anta", sans-serif;
+}
+.deletegamebutton{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-family: "Anta", sans-serif;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.deletegamebutton:hover{
+    background-color: #333;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 57%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    width: 250px;
+}
+
+.pagination > div {
+    display: inline-block;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+    font-family: "Anta", sans-serif;
+}
+
+.pagination a:last-child {
+    margin-right: 0;
+}
+
+.editgameform{
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    width: 400px;
+    height: 775px;
+    margin: 20px;
+    padding: 20px;
+
+}
+.editgamebutton{
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    bottom: 5px;
+    left: 880px;
+    font-family: "Anta", sans-serif;
+    border-radius: 12px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.editgamebutton:hover{
+    background-color: #333;
+}
+.editgamechoose{
+    position:relative;
+    left:450px;
+    bottom:600px;
+}
+
+.editselect{
+    width: 350px;
+    height: 50px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+}
+
+.form-group{
+    font-family: "Anta", sans-serif;
+    font-size: 20px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-control{
+    width: 275px;
+    height: 25px;
+    font-size: 15px;
+}
+
+
+.detailscontainer {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    height: auto;
+    width: 1000px;
+    margin: 50px;
+
+}
+
+.detailsplatform{
+    font-size: 30px;
+}
+.detailstitle{
+    font-family: "Anta", sans-serif;
+    border-bottom: 5px solid black;
+    margin-left: 300px;
+    width: 400px;
+    text-align: center;
+}
+
+.detailsimage{
+    margin-top: 30px;
+    margin-left: 100px;
+    display: flex;
+}
+
+.detailsbuy{
+    margin-top: 30px;
+    font-family: "Anta", sans-serif;
+    font-size: 50px;
+    margin-left: 180px;
+}
+
+.detailsaddtocartbutton{
+    margin-left: 0px;
+    width: 200px;
+    height: 75px;
+    font-family: "Anta", sans-serif;
+    font-size: 30px;
+    border-radius: 12px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.detailsaddtocartbutton:hover{
+    background-color: #333;
+}
+.detailsdescription{
+    text-align: center;
+    margin-top: 100px;
+    font-size: 20px;
+
+}
+
+.detailsquantity{
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-plus {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1em;
+}
+.quantity-minus {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.quantity-minus:hover,
+.quantity-plus:hover {
+    color: blue;
+}
+
+.text-danger{
+    font-size: 12px;
+}
+
+.login-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    height: 400px;
+}
+
+.login-container h2 {
+    font-family: 'Anta', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.login-container p {
+    font-family: 'Anta', sans-serif;
+    font-size: 23px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container input[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+
+}
+.login-container button {
+    width: 250px;
+    height: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+
+}
+.register-container button {
+    width: 250px;
+    height: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+
+}
+.login-container input[type="submit"]:hover {
+    background-color: #333;
+}
+.login-container button:hover {
+    background-color: #333;
+}
+.register-container button:hover {
+    background-color: #333;
+}
+
+.login-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-family: 'Anta', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+.login-container input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.register-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.register-container h2 {
+    font-family: 'Anta', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.register-container input[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+}
+
+.register-container input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.register-container > p{
+    font-family: "Anta", sans-serif;
+    font-size: 30px;
+}
+.register-container > a{
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+.login-container > a{
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Anta', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+.login-container > a:hover{
+    background-color: #333;
+}
+.register-container > a:hover{
+    background-color: #333;
+}
+
+.dropdown-user {
+    position: relative;
+    right: 20px;
+    z-index: 2;
+}
+
+.column {
+    position: relative;
+    flex-basis: calc(33.33% - 20px);
+    margin-top: 20px;
+}
+
+.column img {
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.column:hover img {
+    opacity: 0.8;
+}
+
+.gamedetails{
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Anta", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    color: white;
+    background-color: #000;
+    text-decoration: none;
+    line-height: 40px;
+    width: 50px;
+}
+.addtocart{
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Anta", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    color: white;
+    background-color: #000;
+
+}
+.gamedetails, .addtocart{
+    height: 40px;
+    width: 100px;
+}
+.column:hover .gamedetails {
+    display: block;
+    top: calc(50% - 40px);
+}
+
+.column:hover .addtocart {
+    display: block;
+    top: calc(50% + 10px);
+}
+
+.gamedetails:hover,
+.addtocart:hover {
+    background-color: #333;
+}
+/* styles.css */
+
+.addgameform {
+    width: 400px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    height: 775px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+label {
+    font-size: 18px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+    font-family: "Anta", sans-serif;
+}
+
+.addgamebutton {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.addgamebutton:hover {
+    background-color: #333;
+}
+
+
+.user-details-container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 100px;
+    height:400px;
+    width:800px;
+    font-family: "Anta", sans-serif;
+    position: relative;
+
+}
+
+.user-details {
+    margin: 20px;
+    border-right: black 2px solid;
+    width: 450px;
+}
+
+.user-details p {
+    font-size: 20px;
+    margin: 20px 20px;
+}
+
+.user-details strong {
+    font-weight: bold;
+}
+
+.user-actions {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.user-actions a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Anta", sans-serif;
+    font-size: 12px;
+}
+
+.user-actions a:hover {
+    background-color: #333;
+}
+
+.delete-account {
+    margin-bottom: 20px;
+}
+
+.userdetail-delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: darkred;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Anta", sans-serif;
+    font-size: 16px;
+
+}
+
+.userdetail-delete-button:hover {
+    background-color: #333;
+}
+
+.userdetail-login-link {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Anta", sans-serif;
+    font-size: 16px;
+}
+
+.userdetail-login-link:hover {
+    background-color: #333;
+}
+
+.user-details-container h1{
+    text-align: center;
+    font-size: 40px;
+}
+.user-address{
+    width: 250px;
+    margin: 20px;
+
+}
+.user-data{
+    display: flex;
+    font-size: 20px;
+
+}
+.change-user-data-container{
+     border: 2px solid #ddd;
+     border-radius: 10px;
+     background-color: #f9f9f9;
+     padding: 20px;
+     margin: 100px;
+     height:400px;
+     width:800px;
+     font-family: "Anta", sans-serif;
+     position: relative;
+
+ }
+.change-password-button,.change-email-button,.change-address-button,.change-name-button{
+    width: 150px;
+    height: 50px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+    border-radius: 12px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 7px;
+}
+.change-password-button:hover{
+    background-color: #333;
+}
+.change-email-button:hover{
+    background-color: #333;
+}
+.change-name-button:hover{
+    background-color: #333;
+}
+.change-address-button:hover{
+    background-color: #333;
+}
+.delete-account-button:hover{
+    background-color: indianred;
+}
+.not-delete-account-button:hover{
+    background-color: darkseagreen;
+}
+.not-delete-account-button{
+    width: 250px;
+    height: 75px;
+    font-family: "Anta", sans-serif;
+    font-size: 25px;
+    border-radius: 12px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 25%;
+    top: 45%;
+    transform: translateX(-50%);
+    bottom: 7px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 75px;
+
+}
+.delete-account-button{
+    width: 250px;
+    height: 75px;
+    font-family: "Anta", sans-serif;
+    font-size: 25px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 75%;
+    top: 45%;
+    transform: translateX(-50%);
+    bottom: 7px;
+    background-color: darkred;
+}
+
+.shopping-basket-a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.game-item{
+    display:flex;
+    padding: 15px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 850px;
+    font-family: "Anta", sans-serif;
+}
+.basket-game-title {
+    margin-left: 50px;
+    margin-top: 40px;
+    width: 150px;
+    white-space: nowrap;
+}
+.basket-game-platform {
+    padding-left: 75px;
+    margin-top: 40px;
+    width: 50px;
+    white-space: nowrap;
+}
+.basket-game-price {
+    text-align: right;
+    margin-top: 40px;
+    padding-left: 250px;
+    width: 100px;
+    white-space: nowrap;
+}
+.game-item button{
+    margin-left: 50px;
+    margin-top: 25px;
+}
+.basket-container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-left: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: "Anta", sans-serif;
+    position: relative;
+    overflow-y: auto;
+    width: 984px;
+
+}
+.order-confirm-container{
+    width: 350px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: "Anta", sans-serif;
+    height: 750px;
+    margin-top: 50px;
+    margin-left: 15px;
+
+}
+.order-confirm-container h1{
+    font-size: 30px;
+    text-align: center;
+}
+.total-price{
+    position: relative;
+    top: 15px;
+    font-size: 25px;
+    display: flex;
+    font-family: "Anta", sans-serif;
+    padding-left: 5px;
+    width: 350px;
+    padding-top: 50px;
+
+}
+
+.confirm-order{
+    margin-left: 10px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    position: absolute;
+    top: 725px;
+    font-family: "Anta", sans-serif;
+}
+.order-change-address {
+    width: 150px;
+    height: 40px;
+    font-family: "Anta", sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 725px;
+    right: 275px;
+}
+.order-change-address:hover{
+    background-color: #333;
+}
+
+.order-address{
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+.order-address h1{
+    text-align: center;
+    font-size: 30px;
+}
+.order-address p{
+    font-size: 20px;
+    font-family: "Anta", sans-serif;
+}
+
+.deletefromcart{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+.deletefromcart:hover{
+    background-color: indianred;
+    cursor: pointer;
+
+}
+.basket-container h1{
+    font-family: "Anta", sans-serif;
+    text-align: center;
+}
+
+.confirm-order:hover{
+    background-color: #333;
+}
+.empty-basket {
+    text-align: center;
+    line-height: 40px;
+}
+.empty-basket a{
+     margin-top: 20px;
+     text-decoration: none;
+     border: none;
+     border-radius: 5px;
+     background-color: #000;
+     color: white;
+     cursor: pointer;
+     font-size: 18px;
+     display: inline-block;
+     width: 150px;
+     height: 40px;
+     padding: 10px;
+
+ }
+
+.empty-basket a:hover{
+    background-color: #333;
+}
+.empty-basket-container{
+    height: 290px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 35px;
+}
+
+.checkbox-label {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.round-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    border: 2px solid #555;
+    cursor: pointer;
+    margin-right: 10px;
+
+}
+
+.round-checkbox:checked {
+    background-color: #555;
+}
+.finished-order-container{
+    width: 700px;
+    height: 550px;
+
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: "Anta", sans-serif;
+    margin-top: 50px;
+    margin-left: 15px;
+}
+.material-symbols-outlined {
+    color: green;
+    text-align: center;
+    margin-top: 75px;
+    margin-left: 225px;
+}
+.finished-order-container h1,h3{
+    text-align: center;
+    font-family: "Anta", sans-serif;
+}
+.finished-order-container a{
+    margin-top: 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+    margin-left: 300px;
+    text-align: center;
+
+}
+.finished-order-container a:hover {
+    background-color: #333;
+}

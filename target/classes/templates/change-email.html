@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Details</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" th:insert="~{layout :: navbar}"></div>
+<div class="container">
+    <div class="change-user-data-container">
+        <h2>Change Email</h2>
+        <form action="/change-email" method="post" th:object="${user}">
+            <div class="form-group">
+                <label for="newEmail">New Email:</label>
+                <input type="email" id="newEmail" name="newEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmEmail">Confirm New Email:</label>
+                <input type="email" id="confirmEmail" name="confirmEmail" class="form-control" required>
+            </div>
+            <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+                <span th:text="${errorMessage}"></span>
+            </div>
+            <button type="submit" class="change-email-button">Change Email</button>
+        </form>
+    </div>
+</div>
+<footer th:insert="~{layout :: footer}"></footer>
+</body>
+</html>
