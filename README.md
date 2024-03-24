@@ -1,29 +1,46 @@
-Playtopia is a Java Spring Framework project currently under development. It operates on a PostgreSQL database and serves as an online game shop. Here are the planned features:
 
-Planned features:
+# Playtopia
 
-Users can complete purchases using a straightforward payment system implementation.
+Playtopia is a Java Spring Framework project currently under development. It operates on a PostgreSQL database and serves as an online game shop. Here are the planned features.
 
-Completed features:
+### To do:
+1. Users can complete purchases using a straightforward payment system implementation.
 
-Admins have special privileges, including adding new games, deleting existing ones, and updating game details. 
+### Completed features:
 
-Registration and logging in system created with Spring Security.  
+1. Admins have special privileges, including adding new games, deleting existing ones, and updating game details. (login and password to admin account is 'admin')
 
-Users can view specific details about each game.   
+2. Registration and logging in system created with Spring Security.
 
-Users can browse a paginated list of all available games and filter them according to their preferences.   
+3. Users can view specific details about each game.
 
-Users can change their data and delete account after registration in profile details page.
+4. Users can browse a paginated list of all available games and filter them according to their preferences.
 
-Users have the ability to delete and add games to their shopping basket.
+5. Users can change their data and delete account after registration in profile details page.
 
-To run the application:
+6. Users have the ability to delete and add games to their shopping basket.
 
-Compile the code in IntelliJ IDEA.
+# How to run 
 
-Navigate to localhost:8080/games in your web browser.
+1. Navigate to project folder in CMD
+2. Set your database password and username (default: postgres)
+```
+SET DB_USERNAME=your_username
+SET DB_PASSWORD=your_password
 
-To log in as an admin user, use 'admin' as both the username and password.
+docker-compose up -d
+```
+3. Add test data to project
+```
+docker exec -i playtopia-db psql -U %DB_USERNAME% -d playtopia -f /docker-entrypoint-initdb.d/02-data.sql
 
-Thank you for checking out Playtopia! Feel free to contribute or provide feedback.
+```
+4. If you want to access container database:
+```
+docker exec -it playtopia-db psql -U %DB_USERNAME% playtopia
+
+```
+5. Open in your browser
+```
+http://localhost:8080/games
+```
