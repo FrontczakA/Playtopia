@@ -1,3 +1,4 @@
+
 version: '3.8'
 
 services:
@@ -10,10 +11,8 @@ services:
       - db
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/playtopia
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_SQL_INIT_MODE: always
       SPRING_JPA_SHOW_SQL: "true"
       SPRING_THYMELEAF_CACHE: "false"
@@ -25,8 +24,8 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_DB: playtopia
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
     volumes:
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
       - ./src/main/resources/data.sql:/docker-entrypoint-initdb.d/02-data.sql
