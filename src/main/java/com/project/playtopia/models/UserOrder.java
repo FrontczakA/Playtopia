@@ -14,7 +14,7 @@ public class UserOrder {
     private Long id;
     private Double price;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
             name = "order_game",
             joinColumns = @JoinColumn(name = "order_id"),
