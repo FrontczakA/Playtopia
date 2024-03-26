@@ -11,8 +11,9 @@ import com.project.playtopia.repository.UserOrderRepository;
 import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,11 +48,20 @@ public class UserOrderService {
                     order.getBasketContent().add(game);
                 }
                 double totalPrice = order.getPrice() + (quantity * game.getPrice());
-                order.setPrice(totalPrice);
+
+                BigDecimal totalPriceBigDecimal = BigDecimal.valueOf(totalPrice);
+                totalPriceBigDecimal = totalPriceBigDecimal.setScale(2, RoundingMode.HALF_UP);
+
+                order.setPrice(totalPriceBigDecimal.doubleValue());
             } else {
                 order = new UserOrder();
                 order.setOrderOwner(user);
-                order.setPrice(quantity * game.getPrice());
+                double totalPrice = quantity * game.getPrice();
+
+                BigDecimal totalPriceBigDecimal = BigDecimal.valueOf(totalPrice);
+                totalPriceBigDecimal = totalPriceBigDecimal.setScale(2, RoundingMode.HALF_UP);
+
+                order.setPrice(totalPriceBigDecimal.doubleValue());
                 order.setBasketContent(new ArrayList<>());
                 for (int i = 0; i < quantity; i++) {
                     order.getBasketContent().add(game);
@@ -71,7 +81,11 @@ public class UserOrderService {
         order.getBasketContent().remove(game);
 
         double newPrice = order.getBasketContent().stream().mapToDouble(Game::getPrice).sum();
-        order.setPrice(newPrice);
+
+        BigDecimal newPriceBigDecimal = BigDecimal.valueOf(newPrice);
+        newPriceBigDecimal = newPriceBigDecimal.setScale(2, RoundingMode.HALF_UP);
+
+        order.setPrice(newPriceBigDecimal.doubleValue());
 
         if (order.getBasketContent().isEmpty()) {
             userOrderRepository.delete(order);
@@ -95,6 +109,12 @@ public class UserOrderService {
 
             ConfirmedUserOrder confirmedOrder = new ConfirmedUserOrder();
             confirmedOrder.setPrice(userOrder.getPrice());
+
+            BigDecimal confirmedOrderPriceBigDecimal = BigDecimal.valueOf(userOrder.getPrice());
+            confirmedOrderPriceBigDecimal = confirmedOrderPriceBigDecimal.setScale(2, RoundingMode.HALF_UP);
+
+            confirmedOrder.setPrice(confirmedOrderPriceBigDecimal.doubleValue());
+
             confirmedOrder.setOrderOwner(userOrder.getOrderOwner());
             confirmedOrder.setDeliveryMethod(deliveryMethod);
             confirmedOrder.setStreet(street);
@@ -113,9 +133,6 @@ public class UserOrderService {
         }
     }
 
-
-
-
     public List<ConfirmedUserOrder> getOrderHistory(String username) {
         Optional<AppUser> userOpt = appUserRepository.findByUsername(username);
         List<ConfirmedUserOrder> orders = new ArrayList<>();
@@ -126,5 +143,3 @@ public class UserOrderService {
         return orders;
     }
 }
-
-

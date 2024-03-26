@@ -19,14 +19,14 @@
 <body>
 <div class="topnav" th:insert="~{layout :: navbar}"></div>
 <div class="container">
-    <div class="order-history-container">
+    <div class="order-history-container" th:class="${#lists.isEmpty(orders)} ? 'empty-order-history' : 'order-history-container'">
         <h1>My Orders</h1>
         <div th:if="${not #lists.isEmpty(orders)}">
             <table>
                 <thead>
                 <tr>
                     <th>Order ID</th>
-                    <th>Total Price</th>
+                    <th>Price</th>
                     <th>Content</th>
                     <th>Delivery Method</th>
                     <th>Address</th>
@@ -44,7 +44,6 @@
                         </ul>
                     </td>
                     <td th:text="${order.deliveryMethod}" class="middle-history-td"></td>
-
                     <td class="right-history-td">
                         <span th:text="| ${order.street}, ${order.city}, ${order.postalCode}, ${order.country}|"></span>
                     </td>
@@ -53,7 +52,10 @@
             </table>
         </div>
         <div th:if="${#lists.isEmpty(orders)}">
-            <p>No orders found.</p>
+            <div class="empty-basket">
+                <h2>Your orders history is empty. Please make order first.</h2>
+                <a th:href="@{/games}">Go back</a>
+            </div>
         </div>
     </div>
 </div>

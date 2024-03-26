@@ -21,15 +21,15 @@ public class Game {
     @NotNull
     @Positive(message = "Only positive numbers")
     Double price;
-    @NotEmpty(message = "This field can't be empty")
+    @NotEmpty(message = "You can't leave empty fields")
     String title;
-    @NotEmpty(message = "This field can't be empty")
+    @NotEmpty(message = "You can't leave empty fields")
     String description;
-    @NotEmpty(message = "This field can't be empty")
+    @NotEmpty(message = "You can't leave empty fields")
     String genre;
-    @NotEmpty(message = "This field can't be empty")
+    @NotEmpty(message = "You can't leave empty fields")
     String platform;
-    @NotEmpty(message = "This field can't be empty")
+    @NotEmpty(message = "You can't leave empty fields")
     String photoUrl;
     @NotNull
     @Min(value = 1, message = "This must be greater than or equal to 1")
