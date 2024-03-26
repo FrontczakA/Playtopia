@@ -58,7 +58,6 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="8" cols="45" th:text="${game.description}"></textarea>
-                <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
             </div>
 
             <div class="editgamechoose">
