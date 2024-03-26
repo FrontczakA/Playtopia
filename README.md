@@ -3,10 +3,8 @@
 
 Playtopia is a Java Spring Framework project currently under development. It operates on a PostgreSQL database and serves as an online game shop. Here are the planned features.
 
-### To do:
-1. Users can complete purchases using a straightforward payment system implementation.
-
 ### Completed features:
+
 
 1. Admins have special privileges, including adding new games, deleting existing ones, and updating game details. (login and password to admin account is 'admin')
 
@@ -19,6 +17,11 @@ Playtopia is a Java Spring Framework project currently under development. It ope
 5. Users can change their data and delete account after registration in profile details page.
 
 6. Users have the ability to delete and add games to their shopping basket.
+
+7. Users can complete purchases using a straightforward ordering system implementation.
+
+8. Users can see their order history.
+
 
 # How to run 
 
