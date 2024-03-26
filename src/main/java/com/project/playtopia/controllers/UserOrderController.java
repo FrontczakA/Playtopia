@@ -2,6 +2,7 @@ package com.project.playtopia.controllers;
 
 import com.project.playtopia.dto.GameDto;
 import com.project.playtopia.models.AppUser;
+import com.project.playtopia.models.ConfirmedUserOrder;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.models.UserOrder;
 import com.project.playtopia.service.AppUserService;
@@ -77,11 +78,42 @@ public class UserOrderController {
         return "redirect:/basket";
     }
     @PostMapping("/confirm-order")
-    public String confirmOrderForm(){
-        return "redirect:/confirm-order";
-    }
-    @GetMapping("/confirm-order")
-    public String confirmOrder(){
+    public String confirmOrder(@RequestParam("order_id") Long orderId, @RequestParam("deliveryMethod") String deliveryMethod, Model model) {
+        if(deliveryMethod == null || deliveryMethod.isEmpty()) {
+            model.addAttribute("errorMessage", "Please select a delivery method.");
+            return "user-basket";
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        Optional<AppUser> userOptional = appUserService.findUserByUsername(username);
+        if (userOptional.isPresent()) {
+            AppUser user = userOptional.get();
+            if (user.getStreet() == null || user.getStreet().isEmpty() ||
+                    user.getCity() == null || user.getCity().isEmpty() ||
+                    user.getPostalCode() == null || user.getPostalCode().isEmpty() ||
+                    user.getCountry() == null || user.getCountry().isEmpty()) {
+                model.addAttribute("errorMessage", "Before placing an order, please fill in your address details.");
+                return "user-basket";
+            }
+        } else {
+            model.addAttribute("errorMessage", "User not found");
+            return "user-basket";
+        }
+
+        userOrderService.confirmOrder(orderId, deliveryMethod);
         return "confirm-order";
     }
+
+
+    @GetMapping("/order-history")
+    public String orderHistory(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        List<ConfirmedUserOrder> orders = userOrderService.getOrderHistory(username);
+        model.addAttribute("orders", orders);
+        return "order-history";
+    }
+
+
 }

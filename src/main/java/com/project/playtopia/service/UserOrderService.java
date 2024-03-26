@@ -1,9 +1,11 @@
 package com.project.playtopia.service;
 
 import com.project.playtopia.models.AppUser;
+import com.project.playtopia.models.ConfirmedUserOrder;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.models.UserOrder;
 import com.project.playtopia.repository.AppUserRepository;
+import com.project.playtopia.repository.ConfirmedUserOrderRepository;
 import com.project.playtopia.repository.GameRepository;
 import com.project.playtopia.repository.UserOrderRepository;
 import javassist.NotFoundException;
@@ -19,11 +21,13 @@ public class UserOrderService {
     UserOrderRepository userOrderRepository;
     GameRepository gameRepository;
     AppUserRepository appUserRepository;
+    ConfirmedUserOrderRepository confirmedUserOrderRepository;
 
-    public UserOrderService(UserOrderRepository userOrderRepository, GameRepository gameRepository, AppUserRepository appUserRepository) {
+    public UserOrderService(UserOrderRepository userOrderRepository, GameRepository gameRepository, AppUserRepository appUserRepository, ConfirmedUserOrderRepository confirmedUserOrderRepository) {
         this.userOrderRepository = userOrderRepository;
         this.gameRepository = gameRepository;
         this.appUserRepository = appUserRepository;
+        this.confirmedUserOrderRepository = confirmedUserOrderRepository;
     }
 
     public void addGameToCart(Long gameId, String username, int quantity) {
@@ -58,8 +62,6 @@ public class UserOrderService {
         }
     }
 
-
-
     public void deleteGameFromCart(Long gameId, Long orderId) {
         UserOrder order = userOrderRepository.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
@@ -78,5 +80,46 @@ public class UserOrderService {
         }
     }
 
+    public void confirmOrder(Long orderId, String deliveryMethod) {
+        Optional<UserOrder> optionalUserOrder = userOrderRepository.findById(orderId);
+        if (optionalUserOrder.isPresent()) {
+            UserOrder userOrder = optionalUserOrder.get();
+
+            if (deliveryMethod == null || deliveryMethod.isEmpty()) {
+                throw new IllegalArgumentException("Please select a delivery method.");
+            }
+
+            ConfirmedUserOrder confirmedOrder = new ConfirmedUserOrder();
+            confirmedOrder.setPrice(userOrder.getPrice());
+            confirmedOrder.setOrderOwner(userOrder.getOrderOwner());
+            confirmedOrder.setDeliveryMethod(deliveryMethod);
+
+            List<Game> orderedGamesClone = new ArrayList<>(userOrder.getBasketContent());
+            confirmedOrder.setOrderedGames(orderedGamesClone);
+
+            confirmedOrder = confirmedUserOrderRepository.save(confirmedOrder);
+
+            userOrder.getBasketContent().clear();
+            userOrder.setPrice(0.0);
+            userOrderRepository.save(userOrder);
+        }
+    }
+
+
+
+
+    public List<ConfirmedUserOrder> getOrderHistory(String username) {
+        Optional<AppUser> userOpt = appUserRepository.findByUsername(username);
+        if (userOpt.isPresent()) {
+            AppUser user = userOpt.get();
+            ConfirmedUserOrder order = confirmedUserOrderRepository.findByOrderOwner(user).orElse(null);
+            if (order != null) {
+                return Collections.singletonList(order);
+            }
+        }
+        return Collections.emptyList();
+    }
+
 }
+
 

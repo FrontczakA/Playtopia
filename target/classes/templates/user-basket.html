@@ -34,7 +34,8 @@
             </div>
         </div>
         <div class="empty-basket" th:if="${order==null}">
-            <h2>Your basket is empty. Please add games first.</h2>
+            <h2 th:if="${errorMessage == null}">Your basket is empty. Please add games first.</h2>
+            <h2 th:if="${errorMessage != null}" th:text="${errorMessage}">Your basket is empty. Please add games first.</h2>
             <a th:href="@{/games}">Go back</a>
         </div>
 
@@ -42,15 +43,19 @@
     <div class="order-confirm-container" th:if="${order!=null}">
         <h1>Choose delivery</h1>
         <div class="checkbox-container">
+
             <form th:if="${order != null}" action="/confirm-order" method="post" id="deliveryForm">
                 <input type="hidden" name="order_id" th:value="${order.id}" />
-                <label><input type="checkbox" name="delivery" value="standard" class="round-checkbox"> Standard</label><br>
-                <label><input type="checkbox" name="delivery" value="express" class="round-checkbox"> Express</label><br>
-                <label><input type="checkbox" name="delivery" value="same-day" class="round-checkbox"> Same Day Delivery</label><br>
-                <label><input type="checkbox" name="delivery" value="courier" class="round-checkbox"> Courier</label><br>
-                <label><input type="checkbox" name="delivery" value="parcel-locker" class="round-checkbox"> Parcel Locker</label><br>
-                <button type="submit" class="confirm-order" onclick="redirectToConfirmOrder()">Confirm Order</button>
+                <label><input type="radio" name="deliveryMethod" value="standard" class="round-checkbox" checked> Standard</label><br>
+                <label><input type="radio" name="deliveryMethod" value="express" class="round-checkbox"> Express</label><br>
+                <label><input type="radio" name="deliveryMethod" value="same-day" class="round-checkbox"> Same Day Delivery</label><br>
+                <label><input type="radio" name="deliveryMethod" value="courier" class="round-checkbox"> Courier</label><br>
+                <label><input type="radio" name="deliveryMethod" value="parcel-locker" class="round-checkbox"> Parcel Locker</label><br>
+                <button type="submit" class="confirm-order">Confirm Order</button>
                 <a th:href="@{/change-address}" class="order-change-address">Change Address</a>
+                <div th:if="${errorMessage != null}" class="error-message">
+                    <p th:text="${errorMessage}"></p>
+                </div>
             </form>
 
         </div>
