@@ -757,7 +757,8 @@ body {
     background-color: #000;
     text-decoration: none;
     line-height: 40px;
-    width: 50px;
+    height: 40px;
+    width: 65px;
 }
 .addtocart{
     display: none;
@@ -773,12 +774,9 @@ body {
     cursor: pointer;
     color: white;
     background-color: #000;
-
-}
-.gamedetails, .addtocart{
     height: 40px;
-    width: 100px;
 }
+
 .column:hover .gamedetails {
     display: block;
     top: calc(50% - 40px);
