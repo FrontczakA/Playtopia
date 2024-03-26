@@ -80,7 +80,7 @@ public class UserOrderService {
         }
     }
 
-    public void confirmOrder(Long orderId, String deliveryMethod) {
+    public void confirmOrder(Long orderId, String deliveryMethod, String street, String city, String postalCode, String country) {
         Optional<UserOrder> optionalUserOrder = userOrderRepository.findById(orderId);
         if (optionalUserOrder.isPresent()) {
             UserOrder userOrder = optionalUserOrder.get();
@@ -89,10 +89,18 @@ public class UserOrderService {
                 throw new IllegalArgumentException("Please select a delivery method.");
             }
 
+            if (street == null || street.isEmpty() || city == null || city.isEmpty() || postalCode == null || postalCode.isEmpty() || country == null || country.isEmpty()) {
+                throw new IllegalArgumentException("Please provide a complete address.");
+            }
+
             ConfirmedUserOrder confirmedOrder = new ConfirmedUserOrder();
             confirmedOrder.setPrice(userOrder.getPrice());
             confirmedOrder.setOrderOwner(userOrder.getOrderOwner());
             confirmedOrder.setDeliveryMethod(deliveryMethod);
+            confirmedOrder.setStreet(street);
+            confirmedOrder.setCity(city);
+            confirmedOrder.setPostalCode(postalCode);
+            confirmedOrder.setCountry(country);
 
             List<Game> orderedGamesClone = new ArrayList<>(userOrder.getBasketContent());
             confirmedOrder.setOrderedGames(orderedGamesClone);
@@ -110,16 +118,13 @@ public class UserOrderService {
 
     public List<ConfirmedUserOrder> getOrderHistory(String username) {
         Optional<AppUser> userOpt = appUserRepository.findByUsername(username);
+        List<ConfirmedUserOrder> orders = new ArrayList<>();
         if (userOpt.isPresent()) {
             AppUser user = userOpt.get();
-            ConfirmedUserOrder order = confirmedUserOrderRepository.findByOrderOwner(user).orElse(null);
-            if (order != null) {
-                return Collections.singletonList(order);
-            }
+            orders = confirmedUserOrderRepository.findAllByOrderOwner(user);
         }
-        return Collections.emptyList();
+        return orders;
     }
-
 }
 
 

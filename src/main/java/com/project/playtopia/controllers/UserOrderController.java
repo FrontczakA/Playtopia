@@ -78,7 +78,9 @@ public class UserOrderController {
         return "redirect:/basket";
     }
     @PostMapping("/confirm-order")
-    public String confirmOrder(@RequestParam("order_id") Long orderId, @RequestParam("deliveryMethod") String deliveryMethod, Model model) {
+    public String confirmOrder(@RequestParam("order_id") Long orderId,
+                               @RequestParam("deliveryMethod") String deliveryMethod,
+                               Model model) {
         if(deliveryMethod == null || deliveryMethod.isEmpty()) {
             model.addAttribute("errorMessage", "Please select a delivery method.");
             return "user-basket";
@@ -101,7 +103,7 @@ public class UserOrderController {
             return "user-basket";
         }
 
-        userOrderService.confirmOrder(orderId, deliveryMethod);
+        userOrderService.confirmOrder(orderId, deliveryMethod, userOptional.get().getStreet(), userOptional.get().getCity(), userOptional.get().getPostalCode(), userOptional.get().getCountry());
         return "confirm-order";
     }
 

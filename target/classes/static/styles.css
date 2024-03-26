@@ -1245,3 +1245,34 @@ label {
 .finished-order-container a:hover {
     background-color: #333;
 }
+
+.order-history-container{
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: "Anta", sans-serif;
+    position: relative;
+    overflow-y: auto;
+    width: 935px;
+    text-align: center;
+    height: 800px;
+    margin-top: 20px;
+
+}
+
+.middle-history-td{
+    border-bottom: 1px black solid;
+    border-right: 1px black solid;
+
+}
+
+.left-history-td{
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+
+}
+
+.right-history-td{
+    border-bottom: 1px black solid;
+
+}
