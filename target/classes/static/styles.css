@@ -318,26 +318,44 @@ body {
 .addgamebutton:hover{
     background-color: #333;
 }
+
 .deletegameform{
-    position: absolute;
-    bottom: 700px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: "Anta", sans-serif;
+    position: relative;
+    overflow-y: auto;
+    height: 300px;
+    width: 500px;
+    margin-top: 80px;
+}
+.deletegameform h1{
+    font-size: 25px;
+    text-align: center;
 
 }
-
 .deleteselect{
     width: 350px;
     height: 60px;
     font-size: 20px;
     font-family: "Anta", sans-serif;
+    margin-left: 70px;
+    margin-top: 10px;
 }
 .deletegamebutton{
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
+    width: 130px;
+    height: 50px;
+    font-size: 20px;
     font-family: "Anta", sans-serif;
     color: white;
+    border-radius: 12px;
+
     background-color: black;
     cursor: pointer;
+    position: relative;
+    top: 50px;
+    left: 175px;
 }
 .deletegamebutton:hover{
     background-color: #333;
@@ -395,7 +413,7 @@ body {
 .editgamechoose{
     position:relative;
     left:450px;
-    bottom:600px;
+    bottom:650px;
 }
 
 .editselect{
@@ -809,15 +827,18 @@ label {
 }
 
 .addgamebutton {
-    width: 100px;
-    height: 40px;
     padding: 10px;
     border: none;
-    border-radius: 5px;
-    background-color: #000;
     color: white;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 15px;
+    width: 150px;
+    height: 30px;
+    font-family: "Anta", sans-serif;
+    border-radius: 12px;
+    background-color: black;
+    text-align: center;
+    line-height: 10px;
 }
 
 .addgamebutton:hover {
@@ -1255,14 +1276,13 @@ label {
     font-family: "Anta", sans-serif;
     position: relative;
     overflow-y: auto;
-    width: 900px;
+    width: 1000px;
     text-align: center;
     height: 800px;
     margin-top: 20px;
 
 }
 .order-history-container table{
-    margin: 15px;
     font-size: 18px;
 }
 
@@ -1282,6 +1302,71 @@ label {
     border-bottom: 1px black solid;
 
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+td {
+    background-color: #fff;
+    color: #555;
+}
+
+tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #f2f2f2;
+}
+
+.left-history-td {
+    width: 20%;
+}
+
+.middle-history-td {
+    width: 15%;
+}
+
+.right-history-td {
+    width: 35%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+.empty-basket {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.empty-basket a {
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
 
 .empty-order-history{
     border: 2px solid #ddd;
@@ -1295,3 +1380,4 @@ label {
     height: 300px;
     margin-top: 150px;
 }
+
