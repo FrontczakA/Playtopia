@@ -26,7 +26,8 @@ Playtopia is a Java Spring Framework project currently under development. It ope
 # How to run 
 
 1. Navigate to project folder in CMD
-2. To run app type
+   
+3. To run app type
 ```
 docker-compose up --build
 ```
@@ -34,8 +35,4 @@ docker-compose up --build
 ```
 http://localhost:8081/games
 ```
-4. If you want to access container database:
-```
-docker exec -it playtopia-db psql -U %DB_USERNAME% playtopia
 
-```
