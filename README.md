@@ -26,24 +26,16 @@ Playtopia is a Java Spring Framework project currently under development. It ope
 # How to run 
 
 1. Navigate to project folder in CMD
-2. Set your database password and username (default: postgres)
+2. To run app type
 ```
-SET DB_USERNAME=your_username
-SET DB_PASSWORD=your_password
-
-docker-compose up -d
+docker-compose up --build
 ```
-3. Add test data to project
+3. Open in your browser
 ```
-docker exec -i playtopia-db psql -U %DB_USERNAME% -d playtopia -f /docker-entrypoint-initdb.d/02-data.sql
-
+http://localhost:8081/games
 ```
 4. If you want to access container database:
 ```
 docker exec -it playtopia-db psql -U %DB_USERNAME% playtopia
 
-```
-5. Open in your browser
-```
-http://localhost:8080/games
 ```
