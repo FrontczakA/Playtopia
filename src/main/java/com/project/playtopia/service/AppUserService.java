@@ -1,8 +1,10 @@
 package com.project.playtopia.service;
 
 import com.project.playtopia.models.AppUser;
+import com.project.playtopia.models.ConfirmedUserOrder;
 import com.project.playtopia.models.Game;
 import com.project.playtopia.repository.AppUserRepository;
+import com.project.playtopia.repository.ConfirmedUserOrderRepository;
 import javassist.NotFoundException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,14 +13,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class AppUserService implements UserDetailsService {
     AppUserRepository appUserRepository;
+    ConfirmedUserOrderRepository confirmedUserOrderRepository;
 
-    public AppUserService(AppUserRepository appUserRepository) {
+    public AppUserService(AppUserRepository appUserRepository, ConfirmedUserOrderRepository confirmedUserOrderRepository) {
         this.appUserRepository = appUserRepository;
+        this.confirmedUserOrderRepository = confirmedUserOrderRepository;
     }
 
     @Override
@@ -95,14 +100,17 @@ public class AppUserService implements UserDetailsService {
         return appUserRepository.findByEmail(email);
     }
 
-    public void deleteAccount(String username) throws NotFoundException {
+    public void deleteAccount(String username) {
         Optional<AppUser> userOptional = appUserRepository.findByUsername(username);
         if (userOptional.isPresent()) {
             AppUser user = userOptional.get();
+
+            List<ConfirmedUserOrder> confirmedOrders = confirmedUserOrderRepository.findAllByOrderOwner(user);
+            confirmedUserOrderRepository.deleteAll(confirmedOrders);
             appUserRepository.delete(user);
         } else {
-            throw new NotFoundException("User not found");
         }
     }
+
 
 }

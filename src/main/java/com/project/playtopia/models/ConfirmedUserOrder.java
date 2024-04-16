@@ -16,7 +16,7 @@ public class ConfirmedUserOrder {
 
     private Double price;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
             name = "confirmed_order_game",
             joinColumns = @JoinColumn(name = "order_id"),

@@ -21,47 +21,41 @@
         <form role="form" method="post" th:action="@{/games/admin/edit}" th:object="${game}">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title" th:value="${game.title}">
-                <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
+                <input name="title" th:field="*{title}" class="form-control" type="text" id="title" placeholder="Title" th:value="${game.title}" required>
             </div>
 
             <div class="form-group">
                 <label for="photoUrl">Genre</label>
-                <input name="genre" th:field="*{genre}" class="form-control" id="genre" placeholder="Genre" th:value="${game.genre}">
-                <p th:if="${#fields.hasErrors('genre')}" class="text-danger" th:errors="*{genre}"></p>
+                <input name="genre" th:field="*{genre}" class="form-control" id="genre" placeholder="Genre" th:value="${game.genre}" required>
             </div>
 
             <div class="form-group">
                 <label for="platform">Platform</label>
-                <input name="platform" th:field="*{platform}" class="form-control" id="platform" placeholder="Platform" th:value="${game.platform}">
-                <p th:if="${#fields.hasErrors('platform')}" class="text-danger" th:errors="*{platform}"></p>
+                <input name="platform" th:field="*{platform}" class="form-control" id="platform" placeholder="Platform" th:value="${game.platform}" required>
             </div>
 
             <div class="form-group">
                 <label for="photoUrl">Photo</label>
-                <input name="photoUrl" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url" th:value="${game.photoUrl}">
-                <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+                <input name="photoUrl" th:field="*{photoUrl}" class="form-control" id="photoUrl" placeholder="Photo Url" th:value="${game.photoUrl}" required>
             </div>
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <input name="price" type="text" th:field="*{price}" class="form-control" id="price" placeholder="Price" th:value="${game.price}">
-                <p th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="*{price}"></p>
+                <input name="price" type="text" th:field="*{price}" class="form-control" id="price" placeholder="Price" th:value="${game.price}" required>
             </div>
 
             <div class="form-group ">
                 <label for="inStock">In stock</label>
-                <input type="number" name="inStock" th:field="*{inStock}" class="form-control" id="inStock" placeholder="In Stock" th:value="${game.inStock}">
-                <p th:if="${#fields.hasErrors('inStock')}" class="text-danger" th:errors="*{inStock}"></p>
+                <input type="number" name="inStock" th:field="*{inStock}" class="form-control" id="inStock" placeholder="In Stock" th:value="${game.inStock}" required>
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="8" cols="45" th:text="${game.description}"></textarea>
+                <textarea name="description" th:field="*{description}" id="description" placeholder="Description" rows="8" cols="45" th:text="${game.description}" required></textarea>
             </div>
 
             <div class="editgamechoose">
-                <select class="editselect" id="gameSelect" name="id" onchange="fillForm()">
+                <select class="editselect" id="gameSelect" name="id" onchange="fillForm()" required>
                     <option th:each="game : ${gamesList}" th:value="${game.id}"
                             th:text="${game.title + ' - ' + game.platform}"
                             th:attr="data-gameInfo=${game.title + ',' + game.genre + ',' + game.platform + ','+game.photoUrl + ',' + game.price + ',' +  ',' + game.description}">

@@ -25,14 +25,14 @@ public class GameController {
         this.gameService = gameService;
     }
     @GetMapping("")
-    String getAllGames(@PageableDefault(size = 6) Pageable pageable, Model model) {
+    public String getAllGames(@PageableDefault(size = 6) Pageable pageable, Model model) {
         Page<GameDto> gamesPage = gameService.findAllGamesPage(pageable);
         model.addAttribute("gamesPage", gamesPage);
         return "games-list";
     }
 
     @PostMapping("/admin/new")
-    String addNewGame(@Validated @ModelAttribute("game") Game game, BindingResult result){
+    public String addNewGame(@Validated @ModelAttribute("game") Game game, BindingResult result){
         if(result.hasErrors()) {
             return "add-game";
         }
@@ -47,14 +47,14 @@ public class GameController {
     }
 
     @GetMapping("/admin/delete")
-    String deleteGameForm(Model model){
+    public String deleteGameForm(Model model){
         List<GameDto> gamesList = gameService.findAllGames();
         model.addAttribute("gamesList", gamesList);
         return "delete-game";
     }
 
     @PostMapping("/admin/delete")
-    String deleteGame(@RequestParam("gameId") Long id, Model model) {
+    public String deleteGame(@RequestParam("gameId") Long id, Model model) {
         gameService.deleteGame(id);
         List<GameDto> gamesList = gameService.findAllGames();
         model.addAttribute("gamesList", gamesList);
@@ -62,7 +62,7 @@ public class GameController {
     }
 
     @GetMapping("/admin/edit")
-    String editGameForm(Model model){
+    public String editGameForm(Model model){
         List<GameDto> gamesList = gameService.findAllGames();
         model.addAttribute("gamesList", gamesList);
         model.addAttribute("game", new Game());
@@ -70,7 +70,7 @@ public class GameController {
     }
 
     @PostMapping("/admin/edit")
-    String editGame(@RequestParam("id") Long id, Model model, @Validated @ModelAttribute("game") Game game, BindingResult result){
+    public String editGame(@RequestParam("id") Long id, Model model, @Validated @ModelAttribute("game") Game game, BindingResult result){
         if(result.hasErrors()) {
             model.addAttribute("game", game);
             return "edit-game";

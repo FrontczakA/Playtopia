@@ -35,6 +35,8 @@ public class Game {
     @Min(value = 1, message = "This must be greater than or equal to 1")
     Long inStock;
 
-    @ManyToMany(mappedBy = "basketContent")
+    @ManyToMany(mappedBy = "orderedGames", cascade = CascadeType.REMOVE)
+    private List<ConfirmedUserOrder> confirmedUserOrders;
+    @ManyToMany(mappedBy = "basketContent"  , cascade = CascadeType.REMOVE)
     private List<UserOrder> orders;
 }

@@ -44,7 +44,11 @@ public class AppUser {
 
     String role;
 
-    @OneToMany(mappedBy = "orderOwner")
+    @OneToMany(mappedBy = "orderOwner", cascade = CascadeType.ALL)
     private List<UserOrder> userOrders;
 
-    }
+    @OneToMany(mappedBy = "orderOwner", cascade = CascadeType.PERSIST)
+    private List<ConfirmedUserOrder> confirmedOrders;
+
+
+}

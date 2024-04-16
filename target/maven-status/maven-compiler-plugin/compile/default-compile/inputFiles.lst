@@ -1,5 +1,6 @@
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\models\Game.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\controllers\AppUserController.java
+C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\models\ConfirmedUserOrder.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\service\AppUserService.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\models\UserOrder.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\security\AuthenticationSuccessHandler.java
@@ -10,6 +11,7 @@ C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\co
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\controllers\UserOrderController.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\repository\GameRepository.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\models\AppUser.java
+C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\repository\ConfirmedUserOrderRepository.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\controllers\GameController.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\service\GameService.java
 C:\Users\front\Desktop\Studia\altut projekty\Playtopia - spring\src\main\java\com\project\playtopia\service\UserOrderService.java
