@@ -1,7 +1,8 @@
 
 # Playtopia
 
-Playtopia is a Java Spring Framework project currently under development. It operates on a PostgreSQL database and serves as an online game shop. Here are the planned features.
+
+Playtopia is a Java Spring Framework project currently under development. It operates on a PostgreSQL database and serves as an online game shop. Here are the planned features, along with the addition of unit tests using JUnit:
 
 ### Completed features:
 
